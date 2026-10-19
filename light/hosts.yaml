@@ -1,0 +1,21 @@
+all:
+  hosts:
+    cauchy07:
+      ansible_connection: local
+      ansible_host: 192.168.4.189
+      ip: 192.168.4.189
+      access_ip: 192.168.4.189
+  children:
+    kube_control_plane:
+      hosts:
+        cauchy07:
+    kube_node:
+      hosts:
+        cauchy07:
+    etcd:
+      hosts:
+        cauchy07:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:

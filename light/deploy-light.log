@@ -1,0 +1,3209 @@
+
+PLAY [Check Ansible version] ***************************************************
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.016)       0:00:00.016 ****** 
+
+TASK [Check 2.19.0 <= Ansible version < 2.20.0] ********************************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.025)       0:00:00.042 ****** 
+
+TASK [Check that python netaddr is installed] **********************************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Inventory setup and validation] ******************************************
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.073)       0:00:00.116 ****** 
+
+TASK [dynamic_groups : Match needed groups by their old names or definition] ***
+ok: [cauchy07] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.055)       0:00:00.171 ****** 
+
+TASK [validate_inventory : Fail if removed variables are used] *****************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.039)       0:00:00.211 ****** 
+
+TASK [validate_inventory : Stop if kube_control_plane group is empty] **********
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.022)       0:00:00.233 ****** 
+
+TASK [validate_inventory : Stop if etcd group is empty in external etcd mode] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.022)       0:00:00.256 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.015)       0:00:00.272 ****** 
+
+TASK [validate_inventory : Stop if unsupported version of Kubernetes] **********
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.041)       0:00:00.313 ****** 
+
+TASK [validate_inventory : Stop if known booleans are set as strings (Use JSON format on CLI: -e "{'key': true }")] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.035)       0:00:00.349 ****** 
+
+TASK [validate_inventory : Stop if even number of etcd hosts] ******************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.036)       0:00:00.385 ****** 
+
+TASK [validate_inventory : Guarantee that enough network address space is available for all pods] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.065)       0:00:00.450 ****** 
+
+TASK [validate_inventory : Check cloud_provider value] *************************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.021)       0:00:00.472 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.015)       0:00:00.488 ****** 
+
+TASK [validate_inventory : Check that kube_service_addresses is a network range] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.067)       0:00:00.555 ****** 
+
+TASK [validate_inventory : Check that kube_pods_subnet is a network range] *****
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.067)       0:00:00.623 ****** 
+
+TASK [validate_inventory : Check that kube_pods_subnet does not collide with kube_service_addresses] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.065)       0:00:00.688 ****** 
+
+TASK [validate_inventory : Check that ipv4 IP range is enough for the nodes] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.066)       0:00:00.755 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.027)       0:00:00.782 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.027)       0:00:00.810 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.027)       0:00:00.838 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.027)       0:00:00.865 ****** 
+
+TASK [validate_inventory : Stop if unsupported options selected] ***************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.038)       0:00:00.904 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.019)       0:00:00.924 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.018)       0:00:00.942 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.015)       0:00:00.958 ****** 
+mercredi 14 octobre 2026  15:40:42 +0200 (0:00:00.014)       0:00:00.973 ****** 
+
+TASK [validate_inventory : Ensure minimum containerd version] ******************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.040)       0:00:01.013 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.015)       0:00:01.029 ****** 
+
+TASK [validate_inventory : Download_file | Check if requested Kubernetes are supported] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Install bastion ssh config] **********************************************
+skipping: no hosts matched
+
+PLAY [Bootstrap hosts for Ansible] *********************************************
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.064)       0:00:01.093 ****** 
+
+TASK [bootstrap_os : Fetch /etc/os-release] ************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.037)       0:00:01.131 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.053)       0:00:01.184 ****** 
+
+TASK [bootstrap_os : Include tasks] ********************************************
+included: /root/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for cauchy07 => (item=/root/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.073)       0:00:01.257 ****** 
+
+TASK [bootstrap_os : Check if bootstrap is needed] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.034)       0:00:01.292 ****** 
+
+TASK [bootstrap_os : Check http::proxy in apt configuration files] *************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.041)       0:00:01.334 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.019)       0:00:01.354 ****** 
+
+TASK [bootstrap_os : Check https::proxy in apt configuration files] ************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.041)       0:00:01.395 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.020)       0:00:01.415 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.016)       0:00:01.431 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.015)       0:00:01.447 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.016)       0:00:01.463 ****** 
+mercredi 14 octobre 2026  15:40:43 +0200 (0:00:00.015)       0:00:01.478 ****** 
+
+TASK [system_packages : Gather OS information] *********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:40:44 +0200 (0:00:00.687)       0:00:02.166 ****** 
+mercredi 14 octobre 2026  15:40:44 +0200 (0:00:00.016)       0:00:02.183 ****** 
+mercredi 14 octobre 2026  15:40:44 +0200 (0:00:00.016)       0:00:02.199 ****** 
+mercredi 14 octobre 2026  15:40:44 +0200 (0:00:00.036)       0:00:02.236 ****** 
+mercredi 14 octobre 2026  15:40:44 +0200 (0:00:00.016)       0:00:02.252 ****** 
+
+TASK [system_packages : Manage packages] ***************************************
+changed: [cauchy07] => (item=install)
+mercredi 14 octobre 2026  15:41:13 +0200 (0:00:29.317)       0:00:31.569 ****** 
+mercredi 14 octobre 2026  15:41:13 +0200 (0:00:00.017)       0:00:31.587 ****** 
+
+TASK [bootstrap_os : Create remote_tmp for it is used by another module] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:14 +0200 (0:00:00.410)       0:00:31.998 ****** 
+
+TASK [bootstrap_os : Gather facts] *********************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:14 +0200 (0:00:00.494)       0:00:32.493 ****** 
+
+TASK [bootstrap_os : Assign inventory name to unconfigured hostnames (non-CoreOS, non-Flatcar, Suse and ClearLinux, non-Fedora)] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:15 +0200 (0:00:00.754)       0:00:33.247 ****** 
+
+TASK [bootstrap_os : Ensure bash_completion.d folder exists] *******************
+ok: [cauchy07]
+
+PLAY [Gather facts] ************************************************************
+mercredi 14 octobre 2026  15:41:15 +0200 (0:00:00.319)       0:00:33.566 ****** 
+
+TASK [network_facts : Gather node IPs] *****************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:16 +0200 (0:00:00.527)       0:00:34.094 ****** 
+
+TASK [network_facts : Set computed IPs variables] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:16 +0200 (0:00:00.062)       0:00:34.156 ****** 
+mercredi 14 octobre 2026  15:41:16 +0200 (0:00:00.027)       0:00:34.184 ****** 
+
+TASK [Gather minimal facts] ****************************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:16 +0200 (0:00:00.488)       0:00:34.672 ****** 
+
+TASK [Gather necessary facts (network)] ****************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:17 +0200 (0:00:00.523)       0:00:35.196 ****** 
+
+TASK [Gather necessary facts (hardware)] ***************************************
+ok: [cauchy07]
+
+PLAY [Prepare for etcd install] ************************************************
+mercredi 14 octobre 2026  15:41:18 +0200 (0:00:01.030)       0:00:36.226 ****** 
+
+TASK [adduser : User | Create User Group] **************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:18 +0200 (0:00:00.450)       0:00:36.676 ****** 
+
+TASK [adduser : User | Create User] ********************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:19 +0200 (0:00:00.530)       0:00:37.206 ****** 
+
+TASK [kubernetes/preinstall : Check if /etc/fstab exists] **********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:19 +0200 (0:00:00.399)       0:00:37.606 ****** 
+
+TASK [kubernetes/preinstall : Remove swapfile from /etc/fstab] *****************
+ok: [cauchy07] => (item=swap)
+changed: [cauchy07] => (item=none)
+mercredi 14 octobre 2026  15:41:20 +0200 (0:00:00.723)       0:00:38.329 ****** 
+
+TASK [kubernetes/preinstall : Mask swap.target (persist swapoff)] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:21 +0200 (0:00:01.272)       0:00:39.602 ****** 
+
+TASK [kubernetes/preinstall : Disable swap] ************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:22 +0200 (0:00:00.506)       0:00:40.109 ****** 
+mercredi 14 octobre 2026  15:41:22 +0200 (0:00:00.023)       0:00:40.133 ****** 
+mercredi 14 octobre 2026  15:41:22 +0200 (0:00:00.021)       0:00:40.154 ****** 
+
+TASK [kubernetes/preinstall : Check resolvconf] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:22 +0200 (0:00:00.342)       0:00:40.497 ****** 
+
+TASK [kubernetes/preinstall : Check existence of /etc/resolvconf/resolv.conf.d] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:22 +0200 (0:00:00.305)       0:00:40.802 ****** 
+
+TASK [kubernetes/preinstall : Check status of /etc/resolv.conf] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:23 +0200 (0:00:00.307)       0:00:41.110 ****** 
+
+TASK [kubernetes/preinstall : Fetch resolv.conf] *******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:23 +0200 (0:00:00.396)       0:00:41.506 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Check if host has NetworkManager] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:23 +0200 (0:00:00.319)       0:00:41.825 ****** 
+
+TASK [kubernetes/preinstall : Check systemd-resolved] **************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.320)       0:00:42.145 ****** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.041)       0:00:42.187 ****** 
+
+TASK [kubernetes/preinstall : Set dns facts] ***********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.039)       0:00:42.227 ****** 
+
+TASK [kubernetes/preinstall : Check if kubelet is configured] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.309)       0:00:42.536 ****** 
+
+TASK [kubernetes/preinstall : Check if early DNS configuration stage] **********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.036)       0:00:42.573 ****** 
+
+TASK [kubernetes/preinstall : Target resolv.conf files] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.038)       0:00:42.612 ****** 
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.019)       0:00:42.632 ****** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhclient.conf exists] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.306)       0:00:42.939 ****** 
+mercredi 14 octobre 2026  15:41:24 +0200 (0:00:00.020)       0:00:42.959 ****** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhcp/dhclient.conf exists] *********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.313)       0:00:43.272 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.019)       0:00:43.292 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.019)       0:00:43.312 ****** 
+
+TASK [kubernetes/preinstall : Target dhclient hook file for Debian family] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.036)       0:00:43.348 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.019)       0:00:43.368 ****** 
+
+TASK [kubernetes/preinstall : Check /usr readonly] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.306)       0:00:43.674 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.019)       0:00:43.694 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.024)       0:00:43.718 ****** 
+
+TASK [kubernetes/preinstall : Stop if non systemd OS type] *********************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.038)       0:00:43.756 ****** 
+
+TASK [kubernetes/preinstall : Stop if the os does not support] *****************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.040)       0:00:43.797 ****** 
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.021)       0:00:43.819 ****** 
+
+TASK [kubernetes/preinstall : Stop if memory is too small for control plane nodes] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.040)       0:00:43.859 ****** 
+
+TASK [kubernetes/preinstall : Stop if memory is too small for nodes] ***********
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:25 +0200 (0:00:00.040)       0:00:43.900 ****** 
+
+TASK [kubernetes/preinstall : Stop if cgroups are not enabled on nodes] ********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.319)       0:00:44.220 ****** 
+
+TASK [kubernetes/preinstall : Stop if ip var does not match local ips] *********
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.043)       0:00:44.264 ****** 
+
+TASK [kubernetes/preinstall : Stop if access_ip is not pingable] ***************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.325)       0:00:44.589 ****** 
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.021)       0:00:44.610 ****** 
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.020)       0:00:44.630 ****** 
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.020)       0:00:44.651 ****** 
+
+TASK [kubernetes/preinstall : Stop if bad hostname] ****************************
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:26 +0200 (0:00:00.041)       0:00:44.692 ****** 
+
+TASK [kubernetes/preinstall : Stop if /etc/resolv.conf has no configured nameservers] ***
+ok: [cauchy07] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+mercredi 14 octobre 2026  15:41:27 +0200 (0:00:00.620)       0:00:45.312 ****** 
+mercredi 14 octobre 2026  15:41:27 +0200 (0:00:00.020)       0:00:45.333 ****** 
+
+TASK [kubernetes/preinstall : Create kubernetes directories] *******************
+changed: [cauchy07] => (item=/etc/kubernetes)
+changed: [cauchy07] => (item=/etc/kubernetes/manifests)
+changed: [cauchy07] => (item=/usr/local/bin/kubernetes-scripts)
+changed: [cauchy07] => (item=/usr/libexec/kubernetes/kubelet-plugins/volume/exec)
+mercredi 14 octobre 2026  15:41:28 +0200 (0:00:01.185)       0:00:46.519 ****** 
+
+TASK [kubernetes/preinstall : Create other directories of root owner] **********
+changed: [cauchy07] => (item=/etc/kubernetes/ssl)
+ok: [cauchy07] => (item=/usr/local/bin)
+mercredi 14 octobre 2026  15:41:29 +0200 (0:00:00.609)       0:00:47.128 ****** 
+
+TASK [kubernetes/preinstall : Check if kubernetes kubeadm compat cert dir exists] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:29 +0200 (0:00:00.311)       0:00:47.440 ****** 
+
+TASK [kubernetes/preinstall : Create kubernetes kubeadm compat cert dir (kubernetes/kubeadm issue 1498)] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:29 +0200 (0:00:00.320)       0:00:47.761 ****** 
+
+TASK [kubernetes/preinstall : Create cni directories] **************************
+changed: [cauchy07] => (item=/etc/cni/net.d)
+changed: [cauchy07] => (item=/opt/cni/bin)
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.610)       0:00:48.371 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.026)       0:00:48.398 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.039)       0:00:48.437 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.021)       0:00:48.459 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.021)       0:00:48.481 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.070)       0:00:48.551 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.070)       0:00:48.622 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.022)       0:00:48.644 ****** 
+mercredi 14 octobre 2026  15:41:30 +0200 (0:00:00.021)       0:00:48.666 ****** 
+
+TASK [kubernetes/preinstall : Create systemd-resolved drop-in directory] *******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:31 +0200 (0:00:00.318)       0:00:48.985 ****** 
+
+TASK [kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:31 +0200 (0:00:00.674)       0:00:49.659 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Ensure NetworkManager conf.d dir] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:32 +0200 (0:00:00.317)       0:00:49.977 ****** 
+mercredi 14 octobre 2026  15:41:32 +0200 (0:00:00.021)       0:00:49.998 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing K8S interfaces (kube-ipvs0/nodelocaldns)] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:32 +0200 (0:00:00.564)       0:00:50.563 ****** 
+mercredi 14 octobre 2026  15:41:33 +0200 (0:00:00.621)       0:00:51.184 ****** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:33 +0200 (0:00:00.044)       0:00:51.228 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:33 +0200 (0:00:00.413)       0:00:51.642 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:33 +0200 (0:00:00.331)       0:00:51.974 ****** 
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.021)       0:00:51.995 ****** 
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.020)       0:00:52.016 ****** 
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.020)       0:00:52.036 ****** 
+
+TASK [kubernetes/preinstall : Clean previously used sysctl file locations] *****
+ok: [cauchy07] => (item=ipv4-ip_forward.conf)
+ok: [cauchy07] => (item=bridge-nf-call.conf)
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.603)       0:00:52.640 ****** 
+
+TASK [kubernetes/preinstall : Stat sysctl file configuration] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.308)       0:00:52.949 ****** 
+mercredi 14 octobre 2026  15:41:34 +0200 (0:00:00.024)       0:00:52.973 ****** 
+
+TASK [kubernetes/preinstall : Make sure sysctl file path folder exists] ********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:35 +0200 (0:00:00.315)       0:00:53.289 ****** 
+
+TASK [kubernetes/preinstall : Enable ip forwarding] ****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:35 +0200 (0:00:00.420)       0:00:53.710 ****** 
+mercredi 14 octobre 2026  15:41:35 +0200 (0:00:00.032)       0:00:53.742 ****** 
+
+TASK [kubernetes/preinstall : Check if we need to set fs.may_detach_mounts] ****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:36 +0200 (0:00:00.306)       0:00:54.049 ****** 
+mercredi 14 octobre 2026  15:41:36 +0200 (0:00:00.031)       0:00:54.081 ****** 
+
+TASK [kubernetes/preinstall : Ensure kubelet expected parameters are set] ******
+changed: [cauchy07] => (item={'name': 'kernel.keys.root_maxbytes', 'value': 25000000})
+changed: [cauchy07] => (item={'name': 'kernel.keys.root_maxkeys', 'value': 1000000})
+changed: [cauchy07] => (item={'name': 'kernel.panic', 'value': 10})
+changed: [cauchy07] => (item={'name': 'kernel.panic_on_oops', 'value': 1})
+changed: [cauchy07] => (item={'name': 'vm.overcommit_memory', 'value': 1})
+changed: [cauchy07] => (item={'name': 'vm.panic_on_oom', 'value': 0})
+mercredi 14 octobre 2026  15:41:37 +0200 (0:00:01.801)       0:00:55.882 ****** 
+
+TASK [kubernetes/preinstall : Compute effective sysctl minimum values (defaults + user overrides)] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:37 +0200 (0:00:00.038)       0:00:55.921 ****** 
+
+TASK [kubernetes/preinstall : Read current sysctl values for floor-managed keys] ***
+ok: [cauchy07] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+ok: [cauchy07] => (item={'key': 'fs.inotify.max_user_watches', 'value': 65536})
+ok: [cauchy07] => (item={'key': 'kernel.pid_max', 'value': 4194304})
+ok: [cauchy07] => (item={'key': 'fs.aio-max-nr', 'value': 1048576})
+ok: [cauchy07] => (item={'key': 'vm.max_map_count', 'value': 262144})
+ok: [cauchy07] => (item={'key': 'net.netfilter.nf_conntrack_max', 'value': 1048576})
+ok: [cauchy07] => (item={'key': 'net.core.somaxconn', 'value': 32768})
+ok: [cauchy07] => (item={'key': 'net.core.netdev_max_backlog', 'value': 16384})
+ok: [cauchy07] => (item={'key': 'fs.file-max', 'value': 2097152})
+ok: [cauchy07] => (item={'key': 'net.ipv4.neigh.default.gc_thresh1', 'value': 8192})
+ok: [cauchy07] => (item={'key': 'net.ipv4.neigh.default.gc_thresh2', 'value': 32768})
+ok: [cauchy07] => (item={'key': 'net.ipv4.neigh.default.gc_thresh3', 'value': 65536})
+ok: [cauchy07] => (item={'key': 'net.ipv6.neigh.default.gc_thresh1', 'value': 8192})
+ok: [cauchy07] => (item={'key': 'net.ipv6.neigh.default.gc_thresh2', 'value': 32768})
+ok: [cauchy07] => (item={'key': 'net.ipv6.neigh.default.gc_thresh3', 'value': 65536})
+mercredi 14 octobre 2026  15:41:42 +0200 (0:00:04.283)       0:01:00.204 ****** 
+
+TASK [kubernetes/preinstall : Increase sysctl value if lower than configured minimum] ***
+changed: [cauchy07] => (item={'changed': False, 'stdout': '128', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'fs.inotify.max_user_instances'], 'start': '2026-10-14 15:41:38.218670', 'end': '2026-10-14 15:41:38.222028', 'delta': '0:00:00.003358', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n fs.inotify.max_user_instances', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['128'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'fs.inotify.max_user_instances', 'value': 8192}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '65536', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'fs.aio-max-nr'], 'start': '2026-10-14 15:41:39.068479', 'end': '2026-10-14 15:41:39.071951', 'delta': '0:00:00.003472', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n fs.aio-max-nr', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['65536'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'fs.aio-max-nr', 'value': 1048576}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '262144', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.netfilter.nf_conntrack_max'], 'start': '2026-10-14 15:41:39.635768', 'end': '2026-10-14 15:41:39.639273', 'delta': '0:00:00.003505', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.netfilter.nf_conntrack_max', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['262144'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.netfilter.nf_conntrack_max', 'value': 1048576}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '4096', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.core.somaxconn'], 'start': '2026-10-14 15:41:39.918515', 'end': '2026-10-14 15:41:39.922160', 'delta': '0:00:00.003645', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.core.somaxconn', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['4096'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.core.somaxconn', 'value': 32768}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '1000', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.core.netdev_max_backlog'], 'start': '2026-10-14 15:41:40.201829', 'end': '2026-10-14 15:41:40.205180', 'delta': '0:00:00.003351', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.core.netdev_max_backlog', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['1000'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.core.netdev_max_backlog', 'value': 16384}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '128', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv4.neigh.default.gc_thresh1'], 'start': '2026-10-14 15:41:40.766887', 'end': '2026-10-14 15:41:40.770315', 'delta': '0:00:00.003428', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv4.neigh.default.gc_thresh1', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['128'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv4.neigh.default.gc_thresh1', 'value': 8192}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '512', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv4.neigh.default.gc_thresh2'], 'start': '2026-10-14 15:41:41.049550', 'end': '2026-10-14 15:41:41.053100', 'delta': '0:00:00.003550', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv4.neigh.default.gc_thresh2', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['512'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv4.neigh.default.gc_thresh2', 'value': 32768}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '1024', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv4.neigh.default.gc_thresh3'], 'start': '2026-10-14 15:41:41.332580', 'end': '2026-10-14 15:41:41.336026', 'delta': '0:00:00.003446', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv4.neigh.default.gc_thresh3', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['1024'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv4.neigh.default.gc_thresh3', 'value': 65536}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '128', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv6.neigh.default.gc_thresh1'], 'start': '2026-10-14 15:41:41.614500', 'end': '2026-10-14 15:41:41.617979', 'delta': '0:00:00.003479', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv6.neigh.default.gc_thresh1', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['128'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv6.neigh.default.gc_thresh1', 'value': 8192}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '512', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv6.neigh.default.gc_thresh2'], 'start': '2026-10-14 15:41:41.895542', 'end': '2026-10-14 15:41:41.898877', 'delta': '0:00:00.003335', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv6.neigh.default.gc_thresh2', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['512'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv6.neigh.default.gc_thresh2', 'value': 32768}, 'ansible_loop_var': 'item'})
+changed: [cauchy07] => (item={'changed': False, 'stdout': '1024', 'stderr': '', 'rc': 0, 'cmd': ['sysctl', '--ignore', '-n', 'net.ipv6.neigh.default.gc_thresh3'], 'start': '2026-10-14 15:41:42.179388', 'end': '2026-10-14 15:41:42.182848', 'delta': '0:00:00.003460', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'sysctl --ignore -n net.ipv6.neigh.default.gc_thresh3', '_uses_shell': False, 'expand_argument_vars': True, 'stdin_add_newline': True, 'strip_empty_ends': True, 'cmd': None, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['1024'], 'stderr_lines': [], 'failed': False, 'item': {'key': 'net.ipv6.neigh.default.gc_thresh3', 'value': 65536}, 'ansible_loop_var': 'item'})
+mercredi 14 octobre 2026  15:41:46 +0200 (0:00:04.337)       0:01:04.541 ****** 
+mercredi 14 octobre 2026  15:41:46 +0200 (0:00:00.021)       0:01:04.562 ****** 
+mercredi 14 octobre 2026  15:41:46 +0200 (0:00:00.021)       0:01:04.584 ****** 
+
+TASK [kubernetes/preinstall : Disable fapolicyd service] ***********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.454)       0:01:05.039 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.021)       0:01:05.060 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.080 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.101 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.121 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.141 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.162 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.182 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.202 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.223 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.243 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.263 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.025)       0:01:05.289 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.025)       0:01:05.315 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.025)       0:01:05.340 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.361 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.020)       0:01:05.381 ****** 
+mercredi 14 octobre 2026  15:41:47 +0200 (0:00:00.004)       0:01:05.386 ****** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | reload NetworkManager] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:48 +0200 (0:00:00.865)       0:01:06.252 ****** 
+mercredi 14 octobre 2026  15:41:48 +0200 (0:00:00.042)       0:01:06.294 ****** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | Restart systemd-resolved] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:41:48 +0200 (0:00:00.625)       0:01:06.919 ****** 
+
+TASK [kubernetes/preinstall : Check if we are running inside a Azure VM] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:49 +0200 (0:00:00.309)       0:01:07.229 ****** 
+mercredi 14 octobre 2026  15:41:49 +0200 (0:00:00.024)       0:01:07.253 ****** 
+
+TASK [container-engine/validate-container-engine : Validate-container-engine | check if fedora coreos] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:49 +0200 (0:00:00.305)       0:01:07.559 ****** 
+
+TASK [container-engine/validate-container-engine : Validate-container-engine | set is_ostree] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:49 +0200 (0:00:00.039)       0:01:07.599 ****** 
+
+TASK [container-engine/validate-container-engine : Ensure kubelet systemd unit exists] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:49 +0200 (0:00:00.307)       0:01:07.907 ****** 
+
+TASK [container-engine/validate-container-engine : Populate service facts] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:54 +0200 (0:00:04.941)       0:01:12.849 ****** 
+
+TASK [container-engine/validate-container-engine : Check if containerd is installed] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:55 +0200 (0:00:00.431)       0:01:13.280 ****** 
+
+TASK [container-engine/validate-container-engine : Check if docker is installed] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:55 +0200 (0:00:00.327)       0:01:13.607 ****** 
+
+TASK [container-engine/validate-container-engine : Check if crio is installed] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:55 +0200 (0:00:00.328)       0:01:13.936 ****** 
+mercredi 14 octobre 2026  15:41:55 +0200 (0:00:00.027)       0:01:13.963 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:13.990 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.017 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.045 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.061)       0:01:14.107 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.135 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.162 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.190 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.218 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.245 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.035)       0:01:14.280 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.308 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.336 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.035)       0:01:14.371 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.399 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.426 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.454 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.034)       0:01:14.488 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.027)       0:01:14.516 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.062)       0:01:14.578 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.607 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.635 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.664 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.692 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.068)       0:01:14.760 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.789 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.029)       0:01:14.818 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.029)       0:01:14.847 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.028)       0:01:14.875 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.043)       0:01:14.919 ****** 
+mercredi 14 octobre 2026  15:41:56 +0200 (0:00:00.033)       0:01:14.953 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.034)       0:01:14.988 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.035)       0:01:15.023 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.052 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.080 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.070)       0:01:15.151 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.036)       0:01:15.187 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.216 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.245 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.029)       0:01:15.274 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.029)       0:01:15.303 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.036)       0:01:15.339 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.029)       0:01:15.369 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.397 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.426 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.455 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.036)       0:01:15.491 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.029)       0:01:15.521 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.549 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.578 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.606 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.635 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.663 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.692 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.720 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.038)       0:01:15.758 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.028)       0:01:15.787 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.043)       0:01:15.831 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.029)       0:01:15.861 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.044)       0:01:15.905 ****** 
+mercredi 14 octobre 2026  15:41:57 +0200 (0:00:00.048)       0:01:15.953 ****** 
+
+TASK [Container Manager] *******************************************************
+included: container-engine/containerd for cauchy07
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.128)       0:01:16.082 ****** 
+
+TASK [container-engine/containerd-common : Containerd-common | check if fedora coreos] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.316)       0:01:16.398 ****** 
+
+TASK [container-engine/containerd-common : Containerd-common | set is_ostree] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.042)       0:01:16.441 ****** 
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.060)       0:01:16.501 ****** 
+
+TASK [container-engine/runc : Runc | check if fedora coreos] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.312)       0:01:16.814 ****** 
+
+TASK [container-engine/runc : Runc | set is_ostree] ****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:58 +0200 (0:00:00.043)       0:01:16.857 ****** 
+
+TASK [container-engine/runc : Runc | Remove package] ***************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:59 +0200 (0:00:00.703)       0:01:17.561 ****** 
+
+TASK [container-engine/runc : Runc | Remove orphaned binary] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:41:59 +0200 (0:00:00.324)       0:01:17.885 ****** 
+
+TASK [container-engine/runc : Runc | Download runc binary] *********************
+included: /root/kubespray/roles/container-engine/runc/tasks/../../../download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:41:59 +0200 (0:00:00.061)       0:01:17.947 ****** 
+
+TASK [container-engine/runc : Prep_download | Set a few facts] *****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.067)       0:01:18.015 ****** 
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.037)       0:01:18.052 ****** 
+
+TASK [container-engine/runc : Download_file | Set pathname of cached file] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.081)       0:01:18.133 ****** 
+
+TASK [container-engine/runc : Download_file | Create dest directory on node] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.380)       0:01:18.513 ****** 
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.028)       0:01:18.542 ****** 
+mercredi 14 octobre 2026  15:42:00 +0200 (0:00:00.039)       0:01:18.582 ****** 
+
+TASK [container-engine/runc : Download_file | Download item] *******************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:01.779)       0:01:20.362 ****** 
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.026)       0:01:20.388 ****** 
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.026)       0:01:20.415 ****** 
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.026)       0:01:20.441 ****** 
+
+TASK [container-engine/runc : Download_file | Extract file archives] ***********
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.096)       0:01:20.537 ****** 
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.057)       0:01:20.595 ****** 
+
+TASK [container-engine/runc : Copy runc binary from download dir] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:02 +0200 (0:00:00.372)       0:01:20.968 ****** 
+
+TASK [container-engine/crictl : Crictl | Download crictl] **********************
+included: /root/kubespray/roles/container-engine/crictl/tasks/../../../download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.059)       0:01:21.028 ****** 
+
+TASK [container-engine/crictl : Prep_download | Set a few facts] ***************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.079)       0:01:21.108 ****** 
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.037)       0:01:21.145 ****** 
+
+TASK [container-engine/crictl : Download_file | Set pathname of cached file] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.106)       0:01:21.252 ****** 
+
+TASK [container-engine/crictl : Download_file | Create dest directory on node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.414)       0:01:21.666 ****** 
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.029)       0:01:21.696 ****** 
+mercredi 14 octobre 2026  15:42:03 +0200 (0:00:00.039)       0:01:21.735 ****** 
+
+TASK [container-engine/crictl : Download_file | Download item] *****************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:05 +0200 (0:00:01.547)       0:01:23.283 ****** 
+mercredi 14 octobre 2026  15:42:05 +0200 (0:00:00.027)       0:01:23.310 ****** 
+mercredi 14 octobre 2026  15:42:05 +0200 (0:00:00.026)       0:01:23.337 ****** 
+mercredi 14 octobre 2026  15:42:05 +0200 (0:00:00.026)       0:01:23.364 ****** 
+
+TASK [container-engine/crictl : Download_file | Extract file archives] *********
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:05 +0200 (0:00:00.084)       0:01:23.448 ****** 
+
+TASK [container-engine/crictl : Extract_file | Unpacking archive] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:07 +0200 (0:00:01.624)       0:01:25.073 ****** 
+
+TASK [container-engine/crictl : Install crictl config] *************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:07 +0200 (0:00:00.579)       0:01:25.652 ****** 
+
+TASK [container-engine/crictl : Copy crictl binary from download dir] **********
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.528)       0:01:26.181 ****** 
+
+TASK [container-engine/nerdctl : Nerdctl | Download nerdctl] *******************
+included: /root/kubespray/roles/container-engine/nerdctl/tasks/../../../download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.060)       0:01:26.242 ****** 
+
+TASK [container-engine/nerdctl : Prep_download | Set a few facts] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.066)       0:01:26.308 ****** 
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.037)       0:01:26.346 ****** 
+
+TASK [container-engine/nerdctl : Download_file | Set pathname of cached file] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.083)       0:01:26.429 ****** 
+
+TASK [container-engine/nerdctl : Download_file | Create dest directory on node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.383)       0:01:26.812 ****** 
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.029)       0:01:26.841 ****** 
+mercredi 14 octobre 2026  15:42:08 +0200 (0:00:00.039)       0:01:26.881 ****** 
+
+TASK [container-engine/nerdctl : Download_file | Download item] ****************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:10 +0200 (0:00:01.551)       0:01:28.433 ****** 
+mercredi 14 octobre 2026  15:42:10 +0200 (0:00:00.027)       0:01:28.460 ****** 
+mercredi 14 octobre 2026  15:42:10 +0200 (0:00:00.026)       0:01:28.487 ****** 
+mercredi 14 octobre 2026  15:42:10 +0200 (0:00:00.026)       0:01:28.514 ****** 
+
+TASK [container-engine/nerdctl : Download_file | Extract file archives] ********
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:10 +0200 (0:00:00.072)       0:01:28.586 ****** 
+
+TASK [container-engine/nerdctl : Extract_file | Unpacking archive] *************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:11 +0200 (0:00:01.337)       0:01:29.924 ****** 
+
+TASK [container-engine/nerdctl : Nerdctl | Copy nerdctl binary from download dir] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:12 +0200 (0:00:00.418)       0:01:30.342 ****** 
+
+TASK [container-engine/nerdctl : Nerdctl | Create configuration dir] ***********
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:12 +0200 (0:00:00.321)       0:01:30.663 ****** 
+
+TASK [container-engine/nerdctl : Nerdctl | Install nerdctl configuration] ******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.585)       0:01:31.249 ****** 
+
+TASK [container-engine/containerd : Containerd | Download containerd] **********
+included: /root/kubespray/roles/container-engine/containerd/tasks/../../../download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.060)       0:01:31.309 ****** 
+
+TASK [container-engine/containerd : Prep_download | Set a few facts] ***********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.072)       0:01:31.381 ****** 
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.037)       0:01:31.419 ****** 
+
+TASK [container-engine/containerd : Download_file | Set pathname of cached file] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.096)       0:01:31.515 ****** 
+
+TASK [container-engine/containerd : Download_file | Create dest directory on node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.401)       0:01:31.917 ****** 
+mercredi 14 octobre 2026  15:42:13 +0200 (0:00:00.029)       0:01:31.946 ****** 
+mercredi 14 octobre 2026  15:42:14 +0200 (0:00:00.041)       0:01:31.987 ****** 
+
+TASK [container-engine/containerd : Download_file | Download item] *************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:02.157)       0:01:34.144 ****** 
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:00.027)       0:01:34.172 ****** 
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:00.026)       0:01:34.198 ****** 
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:00.026)       0:01:34.225 ****** 
+
+TASK [container-engine/containerd : Download_file | Extract file archives] *****
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:00.077)       0:01:34.303 ****** 
+mercredi 14 octobre 2026  15:42:16 +0200 (0:00:00.064)       0:01:34.368 ****** 
+
+TASK [container-engine/containerd : Containerd | Unpack containerd archive] ****
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:18 +0200 (0:00:02.235)       0:01:36.603 ****** 
+
+TASK [container-engine/containerd : Containerd | Generate systemd service for containerd] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:19 +0200 (0:00:00.593)       0:01:37.197 ****** 
+
+TASK [container-engine/containerd : Containerd | Ensure containerd directories exist] ***
+changed: [cauchy07] => (item=/etc/systemd/system/containerd.service.d)
+changed: [cauchy07] => (item=/etc/containerd)
+mercredi 14 octobre 2026  15:42:19 +0200 (0:00:00.610)       0:01:37.807 ****** 
+mercredi 14 octobre 2026  15:42:19 +0200 (0:00:00.031)       0:01:37.839 ****** 
+
+TASK [container-engine/containerd : Containerd | Generate default base_runtime_spec] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:20 +0200 (0:00:00.331)       0:01:38.170 ****** 
+
+TASK [container-engine/containerd : Containerd | Store generated default base_runtime_spec] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:20 +0200 (0:00:00.046)       0:01:38.216 ****** 
+
+TASK [container-engine/containerd : Containerd | Write base_runtime_specs] *****
+changed: [cauchy07] => (item={'key': 'cri-base.json', 'value': {'ociVersion': '1.3.0', 'process': {'user': {'uid': 0, 'gid': 0}, 'cwd': '/', 'capabilities': {'bounding': ['CAP_CHOWN', 'CAP_DAC_OVERRIDE', 'CAP_FSETID', 'CAP_FOWNER', 'CAP_MKNOD', 'CAP_NET_RAW', 'CAP_SETGID', 'CAP_SETUID', 'CAP_SETFCAP', 'CAP_SETPCAP', 'CAP_NET_BIND_SERVICE', 'CAP_SYS_CHROOT', 'CAP_KILL', 'CAP_AUDIT_WRITE'], 'effective': ['CAP_CHOWN', 'CAP_DAC_OVERRIDE', 'CAP_FSETID', 'CAP_FOWNER', 'CAP_MKNOD', 'CAP_NET_RAW', 'CAP_SETGID', 'CAP_SETUID', 'CAP_SETFCAP', 'CAP_SETPCAP', 'CAP_NET_BIND_SERVICE', 'CAP_SYS_CHROOT', 'CAP_KILL', 'CAP_AUDIT_WRITE'], 'permitted': ['CAP_CHOWN', 'CAP_DAC_OVERRIDE', 'CAP_FSETID', 'CAP_FOWNER', 'CAP_MKNOD', 'CAP_NET_RAW', 'CAP_SETGID', 'CAP_SETUID', 'CAP_SETFCAP', 'CAP_SETPCAP', 'CAP_NET_BIND_SERVICE', 'CAP_SYS_CHROOT', 'CAP_KILL', 'CAP_AUDIT_WRITE']}, 'rlimits': [{'type': 'RLIMIT_NOFILE', 'hard': 65535, 'soft': 65535}], 'noNewPrivileges': True}, 'root': {'path': 'rootfs'}, 'mounts': [{'destination': '/proc', 'type': 'proc', 'source': 'proc', 'options': ['nosuid', 'noexec', 'nodev']}, {'destination': '/dev', 'type': 'tmpfs', 'source': 'tmpfs', 'options': ['nosuid', 'strictatime', 'mode=755', 'size=65536k']}, {'destination': '/dev/pts', 'type': 'devpts', 'source': 'devpts', 'options': ['nosuid', 'noexec', 'newinstance', 'ptmxmode=0666', 'mode=0620', 'gid=5']}, {'destination': '/dev/shm', 'type': 'tmpfs', 'source': 'shm', 'options': ['nosuid', 'noexec', 'nodev', 'mode=1777', 'size=65536k']}, {'destination': '/dev/mqueue', 'type': 'mqueue', 'source': 'mqueue', 'options': ['nosuid', 'noexec', 'nodev']}, {'destination': '/sys', 'type': 'sysfs', 'source': 'sysfs', 'options': ['nosuid', 'noexec', 'nodev', 'ro']}, {'destination': '/run', 'type': 'tmpfs', 'source': 'tmpfs', 'options': ['nosuid', 'strictatime', 'mode=755', 'size=65536k']}], 'linux': {'resources': {'devices': [{'allow': False, 'access': 'rwm'}]}, 'cgroupsPath': '/default', 'namespaces': [{'type': 'pid'}, {'type': 'ipc'}, {'type': 'uts'}, {'type': 'mount'}, {'type': 'network'}], 'maskedPaths': ['/proc/acpi', '/proc/asound', '/proc/kcore', '/proc/keys', '/proc/latency_stats', '/proc/timer_list', '/proc/timer_stats', '/proc/sched_debug', '/sys/firmware', '/sys/devices/virtual/powercap', '/proc/scsi'], 'readonlyPaths': ['/proc/bus', '/proc/fs', '/proc/irq', '/proc/sys', '/proc/sysrq-trigger']}}})
+mercredi 14 octobre 2026  15:42:20 +0200 (0:00:00.584)       0:01:38.801 ****** 
+
+TASK [container-engine/containerd : Containerd | Copy containerd config file] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:21 +0200 (0:00:00.603)       0:01:39.404 ****** 
+
+TASK [container-engine/containerd : Containerd | Create registry directories] ***
+changed: [cauchy07] => (item=(censored due to no_log))
+mercredi 14 octobre 2026  15:42:21 +0200 (0:00:00.325)       0:01:39.730 ****** 
+
+TASK [container-engine/containerd : Containerd | Write hosts.toml file] ********
+changed: [cauchy07] => (item=(censored due to no_log))
+mercredi 14 octobre 2026  15:42:22 +0200 (0:00:00.583)       0:01:40.313 ****** 
+mercredi 14 octobre 2026  15:42:22 +0200 (0:00:00.018)       0:01:40.332 ****** 
+
+RUNNING HANDLER [container-engine/crictl : Get crictl completion] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:22 +0200 (0:00:00.331)       0:01:40.664 ****** 
+
+RUNNING HANDLER [container-engine/crictl : Install crictl completion] **********
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:23 +0200 (0:00:00.574)       0:01:41.238 ****** 
+
+RUNNING HANDLER [container-engine/nerdctl : Get nerdctl completion] ************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:23 +0200 (0:00:00.340)       0:01:41.579 ****** 
+
+RUNNING HANDLER [container-engine/nerdctl : Install nerdctl completion] ********
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:24 +0200 (0:00:00.571)       0:01:42.150 ****** 
+
+RUNNING HANDLER [container-engine/containerd : Containerd | restart containerd] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:25 +0200 (0:00:01.719)       0:01:43.869 ****** 
+
+RUNNING HANDLER [container-engine/containerd : Containerd | wait for containerd] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:26 +0200 (0:00:00.348)       0:01:44.218 ****** 
+
+TASK [container-engine/containerd : Containerd | Ensure containerd is started and enabled] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:01.020)       0:01:45.239 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.042)       0:01:45.281 ****** 
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.027)       0:01:45.309 ****** 
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.026)       0:01:45.336 ****** 
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.025)       0:01:45.361 ****** 
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.025)       0:01:45.386 ****** 
+
+TASK [download : Prep_download | Register docker images info] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:27 +0200 (0:00:00.395)       0:01:45.782 ****** 
+
+TASK [download : Prep_download | Create staging directory on remote node] ******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.324)       0:01:46.107 ****** 
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.027)       0:01:46.135 ****** 
+
+TASK [download : Download | Get kubeadm binary and list of required images] ****
+included: /root/kubespray/roles/download/tasks/prep_kubeadm_images.yml for cauchy07
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.056)       0:01:46.191 ****** 
+
+TASK [download : Prep_kubeadm_images | Download kubeadm binary] ****************
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.060)       0:01:46.251 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.063)       0:01:46.315 ****** 
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.036)       0:01:46.351 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.078)       0:01:46.430 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.376)       0:01:46.806 ****** 
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.027)       0:01:46.834 ****** 
+mercredi 14 octobre 2026  15:42:28 +0200 (0:00:00.038)       0:01:46.873 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:02.385)       0:01:49.259 ****** 
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:00.025)       0:01:49.284 ****** 
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:00.025)       0:01:49.310 ****** 
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:00.025)       0:01:49.335 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:00.067)       0:01:49.402 ****** 
+mercredi 14 octobre 2026  15:42:31 +0200 (0:00:00.055)       0:01:49.458 ****** 
+
+TASK [download : Prep_kubeadm_images | Copy kubeadm binary from download dir to system path] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:32 +0200 (0:00:00.684)       0:01:50.142 ****** 
+
+TASK [download : Prep_kubeadm_images | Create kubeadm config] ******************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:32 +0200 (0:00:00.684)       0:01:50.827 ****** 
+
+TASK [download : Prep_kubeadm_images | Generate list of required images] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:33 +0200 (0:00:00.348)       0:01:51.175 ****** 
+
+TASK [download : Prep_kubeadm_images | Parse list of images] *******************
+ok: [cauchy07] => (item=registry.k8s.io/kube-apiserver:v1.36.4)
+ok: [cauchy07] => (item=registry.k8s.io/kube-controller-manager:v1.36.4)
+ok: [cauchy07] => (item=registry.k8s.io/kube-scheduler:v1.36.4)
+ok: [cauchy07] => (item=registry.k8s.io/kube-proxy:v1.36.4)
+mercredi 14 octobre 2026  15:42:33 +0200 (0:00:00.082)       0:01:51.258 ****** 
+
+TASK [download : Prep_kubeadm_images | Convert list of images to dict for later use] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:33 +0200 (0:00:00.046)       0:01:51.305 ****** 
+
+TASK [download : Download | Download files / images] ***************************
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'etcd', 'value': {'container': False, 'file': True, 'enabled': True, 'dest': '/tmp/releases/etcd-3.6.14-linux-amd64.tar.gz', 'repo': 'quay.io/coreos/etcd', 'tag': 'v3.6.14', 'checksum': 'sha256:ffe840ff9295808e88cce2794a18a5ac87f12a5203c8314d0bf6aa119b41bac5', 'url': 'https://github.com/etcd-io/etcd/releases/download/v3.6.14/etcd-v3.6.14-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['etcd']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'cni', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/cni-plugins-linux-amd64-1.9.1.tgz', 'checksum': 'sha256:b98f74a0f8522f0a83867178729c1aa70f2158f90c45a2ca8fa791db1c76b303', 'url': 'https://github.com/containernetworking/plugins/releases/download/v1.9.1/cni-plugins-linux-amd64-v1.9.1.tgz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'kubeadm', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubeadm-1.36.4-amd64', 'checksum': 'sha256:10d054585907f2c8bb823c84f6a66b3bd2a474c3d795475f04e9a44f78650fe6', 'url': 'https://dl.k8s.io/release/v1.36.4/bin/linux/amd64/kubeadm', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'kubelet', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubelet-1.36.4-amd64', 'checksum': 'sha256:cf2562db46c48ab84cc3791540778ee7fb1a0a008529adbb434723dd02ed8b4b', 'url': 'https://dl.k8s.io/release/v1.36.4/bin/linux/amd64/kubelet', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'kubectl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubectl-1.36.4-amd64', 'checksum': 'sha256:8b8f088da2dab964f853b38464033b1be15ede2839eca751482357c45abdd05a', 'url': 'https://dl.k8s.io/release/v1.36.4/bin/linux/amd64/kubectl', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'crictl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/crictl-1.36.0-linux-amd64.tar.gz', 'checksum': 'sha256:83855e114566a8a8c44c548d515670f51de3a5e1da8b2effb59870e2f10c25a3', 'url': 'https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.36.0/crictl-v1.36.0-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'runc', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/runc-1.4.3.amd64', 'checksum': 'sha256:f6ae8efc0fa40079e1475e97cbe9d1bd3f106a28d6af78a11d9f1bd565515e60', 'url': 'https://github.com/opencontainers/runc/releases/download/v1.4.3/runc.amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'containerd', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/containerd-2.3.5-linux-amd64.tar.gz', 'checksum': 'sha256:2f0a095a71e3262d0d91ff0e50e2e4ae73c3866c4d1ff6a15f341097fba3dd44', 'url': 'https://github.com/containerd/containerd/releases/download/v2.3.5/containerd-2.3.5-linux-amd64.tar.gz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_file.yml for cauchy07 => (item={'key': 'nerdctl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/nerdctl-2.3.5-linux-amd64.tar.gz', 'checksum': 'sha256:de3206aeb7cbd5f20f5fb1f55c1e3bf2db1be567812a8a3f5e65eba2488347ee', 'url': 'https://github.com/containerd/nerdctl/releases/download/v2.3.5/nerdctl-2.3.5-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'flannel', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/flannel/flannel', 'tag': '0.28.9', 'checksum': None, 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'flannel_init', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/flannel/flannel-cni-plugin', 'tag': 'v1.7.1-flannel1', 'checksum': None, 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'pod_infra', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/pause', 'tag': '3.10.2', 'checksum': None, 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'nginx', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/library/nginx', 'tag': '1.30.1-alpine', 'checksum': None, 'groups': ['kube_node']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'coredns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/coredns/coredns', 'tag': 'v1.14.2', 'checksum': None, 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'dnsautoscaler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/cpa/cluster-proportional-autoscaler', 'tag': 'v1.10.3', 'checksum': None, 'groups': ['kube_control_plane']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'kubeadm_kube-apiserver', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-apiserver', 'tag': 'v1.36.4', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'kubeadm_kube-controller-manager', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-controller-manager', 'tag': 'v1.36.4', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'kubeadm_kube-scheduler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-scheduler', 'tag': 'v1.36.4', 'groups': ['k8s_cluster']}})
+included: /root/kubespray/roles/download/tasks/download_container.yml for cauchy07 => (item={'key': 'kubeadm_kube-proxy', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-proxy', 'tag': 'v1.36.4', 'groups': ['k8s_cluster']}})
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:01.887)       0:01:53.192 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.038)       0:01:53.231 ****** 
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.026)       0:01:53.257 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.039)       0:01:53.297 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.323)       0:01:53.621 ****** 
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.028)       0:01:53.649 ****** 
+mercredi 14 octobre 2026  15:42:35 +0200 (0:00:00.039)       0:01:53.689 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:37 +0200 (0:00:01.753)       0:01:55.443 ****** 
+mercredi 14 octobre 2026  15:42:37 +0200 (0:00:00.028)       0:01:55.472 ****** 
+mercredi 14 octobre 2026  15:42:37 +0200 (0:00:00.028)       0:01:55.501 ****** 
+mercredi 14 octobre 2026  15:42:37 +0200 (0:00:00.028)       0:01:55.530 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:37 +0200 (0:00:00.048)       0:01:55.578 ****** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:01.769)       0:01:57.347 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.039)       0:01:57.387 ****** 
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.026)       0:01:57.413 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.038)       0:01:57.452 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.321)       0:01:57.774 ****** 
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.028)       0:01:57.803 ****** 
+mercredi 14 octobre 2026  15:42:39 +0200 (0:00:00.039)       0:01:57.842 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:41 +0200 (0:00:02.037)       0:01:59.879 ****** 
+mercredi 14 octobre 2026  15:42:41 +0200 (0:00:00.026)       0:01:59.905 ****** 
+mercredi 14 octobre 2026  15:42:41 +0200 (0:00:00.026)       0:01:59.932 ****** 
+mercredi 14 octobre 2026  15:42:41 +0200 (0:00:00.026)       0:01:59.959 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.048)       0:02:00.007 ****** 
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.029)       0:02:00.037 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.038)       0:02:00.075 ****** 
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.026)       0:02:00.101 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.038)       0:02:00.140 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.320)       0:02:00.460 ****** 
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.028)       0:02:00.488 ****** 
+mercredi 14 octobre 2026  15:42:42 +0200 (0:00:00.038)       0:02:00.527 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.677)       0:02:01.205 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.026)       0:02:01.231 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.025)       0:02:01.257 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.025)       0:02:01.283 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.047)       0:02:01.330 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.029)       0:02:01.360 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.038)       0:02:01.399 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.026)       0:02:01.425 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.038)       0:02:01.464 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.323)       0:02:01.788 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.028)       0:02:01.816 ****** 
+mercredi 14 octobre 2026  15:42:43 +0200 (0:00:00.039)       0:02:01.856 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:01.737)       0:02:03.593 ****** 
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.026)       0:02:03.619 ****** 
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.025)       0:02:03.645 ****** 
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.025)       0:02:03.671 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.047)       0:02:03.718 ****** 
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.029)       0:02:03.748 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.038)       0:02:03.786 ****** 
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.026)       0:02:03.812 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:45 +0200 (0:00:00.038)       0:02:03.851 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:46 +0200 (0:00:00.320)       0:02:04.172 ****** 
+mercredi 14 octobre 2026  15:42:46 +0200 (0:00:00.028)       0:02:04.200 ****** 
+mercredi 14 octobre 2026  15:42:46 +0200 (0:00:00.039)       0:02:04.239 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:02.126)       0:02:06.365 ****** 
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.026)       0:02:06.391 ****** 
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.025)       0:02:06.417 ****** 
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.025)       0:02:06.443 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.047)       0:02:06.490 ****** 
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.029)       0:02:06.520 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.037)       0:02:06.557 ****** 
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.026)       0:02:06.583 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:48 +0200 (0:00:00.085)       0:02:06.669 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.368)       0:02:07.037 ****** 
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.028)       0:02:07.066 ****** 
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.085)       0:02:07.151 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.544)       0:02:07.696 ****** 
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.025)       0:02:07.722 ****** 
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.025)       0:02:07.748 ****** 
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.025)       0:02:07.774 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:49 +0200 (0:00:00.131)       0:02:07.905 ****** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:01.090)       0:02:08.996 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.039)       0:02:09.035 ****** 
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.027)       0:02:09.062 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.039)       0:02:09.102 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.322)       0:02:09.424 ****** 
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.029)       0:02:09.454 ****** 
+mercredi 14 octobre 2026  15:42:51 +0200 (0:00:00.039)       0:02:09.494 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.488)       0:02:09.982 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.027)       0:02:10.009 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.026)       0:02:10.036 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.026)       0:02:10.063 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.049)       0:02:10.112 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.031)       0:02:10.143 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.039)       0:02:10.183 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.027)       0:02:10.211 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.040)       0:02:10.251 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.325)       0:02:10.577 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.029)       0:02:10.606 ****** 
+mercredi 14 octobre 2026  15:42:52 +0200 (0:00:00.040)       0:02:10.647 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.545)       0:02:11.193 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.027)       0:02:11.220 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.027)       0:02:11.248 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.026)       0:02:11.275 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.049)       0:02:11.324 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.030)       0:02:11.355 ****** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.039)       0:02:11.394 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.027)       0:02:11.421 ****** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.040)       0:02:11.462 ****** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.322)       0:02:11.785 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.029)       0:02:11.815 ****** 
+mercredi 14 octobre 2026  15:42:53 +0200 (0:00:00.040)       0:02:11.855 ****** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:54 +0200 (0:00:00.577)       0:02:12.432 ****** 
+mercredi 14 octobre 2026  15:42:54 +0200 (0:00:00.028)       0:02:12.461 ****** 
+mercredi 14 octobre 2026  15:42:54 +0200 (0:00:00.027)       0:02:12.488 ****** 
+mercredi 14 octobre 2026  15:42:54 +0200 (0:00:00.027)       0:02:12.515 ****** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:42:54 +0200 (0:00:00.048)       0:02:12.564 ****** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:01.062)       0:02:13.626 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.034)       0:02:13.661 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "docker.io/flannel/flannel"
+}
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.038)       0:02:13.699 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.041)       0:02:13.741 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.038)       0:02:13.780 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.035)       0:02:13.815 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.035)       0:02:13.851 ****** 
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.027)       0:02:13.878 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.036)       0:02:13.915 ****** 
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.027)       0:02:13.942 ****** 
+mercredi 14 octobre 2026  15:42:55 +0200 (0:00:00.028)       0:02:13.971 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.040)       0:02:14.012 ****** 
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.029)       0:02:14.041 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.048)       0:02:14.090 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.387)       0:02:14.477 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.037)       0:02:14.515 ****** 
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.027)       0:02:14.543 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull docker.io/flannel/flannel:0.28.9 required is: True"
+}
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.035)       0:02:14.578 ****** 
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.029)       0:02:14.608 ****** 
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.027)       0:02:14.636 ****** 
+mercredi 14 octobre 2026  15:42:56 +0200 (0:00:00.028)       0:02:14.664 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:03.810)       0:02:18.475 ****** 
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.042)       0:02:18.517 ****** 
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.027)       0:02:18.545 ****** 
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.027)       0:02:18.573 ****** 
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.027)       0:02:18.600 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.316)       0:02:18.917 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:00 +0200 (0:00:00.034)       0:02:18.952 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "docker.io/flannel/flannel-cni-plugin"
+}
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.038)       0:02:18.991 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.041)       0:02:19.032 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.038)       0:02:19.070 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.035)       0:02:19.106 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.036)       0:02:19.142 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.027)       0:02:19.170 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.038)       0:02:19.208 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.027)       0:02:19.236 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.028)       0:02:19.264 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.041)       0:02:19.305 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.028)       0:02:19.334 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.048)       0:02:19.382 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.389)       0:02:19.772 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.037)       0:02:19.809 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.028)       0:02:19.838 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull docker.io/flannel/flannel-cni-plugin:v1.7.1-flannel1 required is: True"
+}
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.035)       0:02:19.873 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.029)       0:02:19.902 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.027)       0:02:19.929 ****** 
+mercredi 14 octobre 2026  15:43:01 +0200 (0:00:00.028)       0:02:19.958 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:04 +0200 (0:00:02.689)       0:02:22.647 ****** 
+mercredi 14 octobre 2026  15:43:04 +0200 (0:00:00.047)       0:02:22.695 ****** 
+mercredi 14 octobre 2026  15:43:04 +0200 (0:00:00.028)       0:02:22.724 ****** 
+mercredi 14 octobre 2026  15:43:04 +0200 (0:00:00.028)       0:02:22.752 ****** 
+mercredi 14 octobre 2026  15:43:04 +0200 (0:00:00.028)       0:02:22.780 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.316)       0:02:23.096 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.034)       0:02:23.131 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/pause"
+}
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.041)       0:02:23.173 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.044)       0:02:23.217 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.041)       0:02:23.259 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.035)       0:02:23.295 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.036)       0:02:23.331 ****** 
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.027)       0:02:23.359 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.037)       0:02:23.396 ****** 
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.027)       0:02:23.424 ****** 
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.031)       0:02:23.456 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.049)       0:02:23.505 ****** 
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.032)       0:02:23.537 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:05 +0200 (0:00:00.050)       0:02:23.588 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.401)       0:02:23.989 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.037)       0:02:24.027 ****** 
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.028)       0:02:24.055 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/pause:3.10.2 required is: True"
+}
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.035)       0:02:24.091 ****** 
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.029)       0:02:24.120 ****** 
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.027)       0:02:24.148 ****** 
+mercredi 14 octobre 2026  15:43:06 +0200 (0:00:00.032)       0:02:24.180 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:01.201)       0:02:25.381 ****** 
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.135)       0:02:25.516 ****** 
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.028)       0:02:25.545 ****** 
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.027)       0:02:25.573 ****** 
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.027)       0:02:25.601 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.316)       0:02:25.918 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:07 +0200 (0:00:00.035)       0:02:25.954 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "docker.io/library/nginx"
+}
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.129)       0:02:26.083 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.134)       0:02:26.217 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.131)       0:02:26.349 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.037)       0:02:26.386 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.036)       0:02:26.423 ****** 
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.027)       0:02:26.451 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.037)       0:02:26.489 ****** 
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.027)       0:02:26.516 ****** 
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.119)       0:02:26.635 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.136)       0:02:26.772 ****** 
+mercredi 14 octobre 2026  15:43:08 +0200 (0:00:00.121)       0:02:26.893 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.118)       0:02:27.012 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.401)       0:02:27.413 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.037)       0:02:27.451 ****** 
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.028)       0:02:27.479 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull docker.io/library/nginx:1.30.1-alpine required is: True"
+}
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.035)       0:02:27.514 ****** 
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.029)       0:02:27.544 ****** 
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.027)       0:02:27.571 ****** 
+mercredi 14 octobre 2026  15:43:09 +0200 (0:00:00.029)       0:02:27.601 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:04.502)       0:02:32.103 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.042)       0:02:32.146 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.028)       0:02:32.174 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.027)       0:02:32.202 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.027)       0:02:32.230 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.317)       0:02:32.548 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.035)       0:02:32.584 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/coredns/coredns"
+}
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.038)       0:02:32.622 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.041)       0:02:32.664 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.038)       0:02:32.702 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.036)       0:02:32.738 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.037)       0:02:32.776 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.027)       0:02:32.803 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.038)       0:02:32.841 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.027)       0:02:32.869 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.028)       0:02:32.898 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.040)       0:02:32.938 ****** 
+mercredi 14 octobre 2026  15:43:14 +0200 (0:00:00.029)       0:02:32.967 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.048)       0:02:33.016 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.409)       0:02:33.425 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.037)       0:02:33.463 ****** 
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.028)       0:02:33.491 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/coredns/coredns:v1.14.2 required is: True"
+}
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.035)       0:02:33.526 ****** 
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.029)       0:02:33.556 ****** 
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.026)       0:02:33.583 ****** 
+mercredi 14 octobre 2026  15:43:15 +0200 (0:00:00.028)       0:02:33.612 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:19 +0200 (0:00:04.099)       0:02:37.711 ****** 
+mercredi 14 octobre 2026  15:43:19 +0200 (0:00:00.042)       0:02:37.753 ****** 
+mercredi 14 octobre 2026  15:43:19 +0200 (0:00:00.028)       0:02:37.782 ****** 
+mercredi 14 octobre 2026  15:43:19 +0200 (0:00:00.028)       0:02:37.810 ****** 
+mercredi 14 octobre 2026  15:43:19 +0200 (0:00:00.028)       0:02:37.838 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.318)       0:02:38.156 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.034)       0:02:38.191 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/cpa/cluster-proportional-autoscaler"
+}
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.038)       0:02:38.230 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.041)       0:02:38.271 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.038)       0:02:38.310 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.036)       0:02:38.346 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.036)       0:02:38.383 ****** 
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.028)       0:02:38.411 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.037)       0:02:38.449 ****** 
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.027)       0:02:38.476 ****** 
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.028)       0:02:38.505 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.040)       0:02:38.546 ****** 
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.029)       0:02:38.575 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:20 +0200 (0:00:00.048)       0:02:38.624 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.410)       0:02:39.035 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.037)       0:02:39.072 ****** 
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.028)       0:02:39.101 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/cpa/cluster-proportional-autoscaler:v1.10.3 required is: True"
+}
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.035)       0:02:39.136 ****** 
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.030)       0:02:39.167 ****** 
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.028)       0:02:39.195 ****** 
+mercredi 14 octobre 2026  15:43:21 +0200 (0:00:00.028)       0:02:39.224 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:01.961)       0:02:41.185 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.042)       0:02:41.228 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.029)       0:02:41.258 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.029)       0:02:41.287 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.028)       0:02:41.316 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.316)       0:02:41.632 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.035)       0:02:41.668 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/kube-apiserver"
+}
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.038)       0:02:41.707 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.042)       0:02:41.749 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.039)       0:02:41.789 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.036)       0:02:41.826 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.037)       0:02:41.863 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.028)       0:02:41.892 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.038)       0:02:41.930 ****** 
+mercredi 14 octobre 2026  15:43:23 +0200 (0:00:00.027)       0:02:41.958 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.029)       0:02:41.987 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.041)       0:02:42.028 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.029)       0:02:42.058 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.048)       0:02:42.107 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.423)       0:02:42.530 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.038)       0:02:42.568 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.028)       0:02:42.597 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/kube-apiserver:v1.36.4 required is: True"
+}
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.035)       0:02:42.633 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.030)       0:02:42.663 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.028)       0:02:42.692 ****** 
+mercredi 14 octobre 2026  15:43:24 +0200 (0:00:00.029)       0:02:42.721 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:02.722)       0:02:45.444 ****** 
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.042)       0:02:45.486 ****** 
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.029)       0:02:45.515 ****** 
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.028)       0:02:45.544 ****** 
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.029)       0:02:45.573 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.319)       0:02:45.893 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.036)       0:02:45.930 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/kube-controller-manager"
+}
+mercredi 14 octobre 2026  15:43:27 +0200 (0:00:00.039)       0:02:45.969 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.043)       0:02:46.012 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.039)       0:02:46.051 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.037)       0:02:46.088 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.037)       0:02:46.126 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.028)       0:02:46.154 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.038)       0:02:46.193 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.028)       0:02:46.221 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.028)       0:02:46.250 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.043)       0:02:46.294 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.029)       0:02:46.323 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.049)       0:02:46.373 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.422)       0:02:46.796 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.038)       0:02:46.834 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.028)       0:02:46.863 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/kube-controller-manager:v1.36.4 required is: True"
+}
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.036)       0:02:46.899 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.030)       0:02:46.929 ****** 
+mercredi 14 octobre 2026  15:43:28 +0200 (0:00:00.028)       0:02:46.957 ****** 
+mercredi 14 octobre 2026  15:43:29 +0200 (0:00:00.029)       0:02:46.987 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:02.436)       0:02:49.423 ****** 
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.043)       0:02:49.467 ****** 
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.028)       0:02:49.495 ****** 
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.028)       0:02:49.524 ****** 
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.028)       0:02:49.553 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.316)       0:02:49.870 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.036)       0:02:49.906 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/kube-scheduler"
+}
+mercredi 14 octobre 2026  15:43:31 +0200 (0:00:00.039)       0:02:49.945 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.042)       0:02:49.988 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.039)       0:02:50.027 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.036)       0:02:50.064 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.036)       0:02:50.101 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.028)       0:02:50.129 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.038)       0:02:50.168 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.028)       0:02:50.196 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.029)       0:02:50.226 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.042)       0:02:50.268 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.029)       0:02:50.298 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.050)       0:02:50.348 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.419)       0:02:50.768 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.038)       0:02:50.806 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.028)       0:02:50.835 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/kube-scheduler:v1.36.4 required is: True"
+}
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.037)       0:02:50.873 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.031)       0:02:50.904 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.028)       0:02:50.932 ****** 
+mercredi 14 octobre 2026  15:43:32 +0200 (0:00:00.030)       0:02:50.963 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:02.224)       0:02:53.187 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.043)       0:02:53.230 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.028)       0:02:53.259 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.028)       0:02:53.288 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.028)       0:02:53.316 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.316)       0:02:53.632 ****** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.036)       0:02:53.669 ****** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [cauchy07] => {
+    "msg": "registry.k8s.io/kube-proxy"
+}
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.038)       0:02:53.707 ****** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.042)       0:02:53.750 ****** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.039)       0:02:53.789 ****** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.036)       0:02:53.826 ****** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.037)       0:02:53.863 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.028)       0:02:53.892 ****** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.038)       0:02:53.931 ****** 
+mercredi 14 octobre 2026  15:43:35 +0200 (0:00:00.028)       0:02:53.959 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.029)       0:02:53.989 ****** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.042)       0:02:54.031 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.029)       0:02:54.061 ****** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /root/kubespray/roles/download/tasks/check_pull_required.yml for cauchy07
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.049)       0:02:54.110 ****** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.427)       0:02:54.538 ****** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.038)       0:02:54.577 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.028)       0:02:54.606 ****** 
+
+TASK [download : debug] ********************************************************
+ok: [cauchy07] => {
+    "msg": "Pull registry.k8s.io/kube-proxy:v1.36.4 required is: True"
+}
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.036)       0:02:54.642 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.030)       0:02:54.672 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.027)       0:02:54.700 ****** 
+mercredi 14 octobre 2026  15:43:36 +0200 (0:00:00.029)       0:02:54.729 ****** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:03.287)       0:02:58.017 ****** 
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:00.043)       0:02:58.060 ****** 
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:00.029)       0:02:58.090 ****** 
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:00.028)       0:02:58.118 ****** 
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:00.028)       0:02:58.147 ****** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [cauchy07]
+
+PLAY [Add worker nodes to the etcd play if needed] *****************************
+mercredi 14 octobre 2026  15:43:40 +0200 (0:00:00.334)       0:02:58.482 ****** 
+
+TASK [Gathering Facts] *********************************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:41 +0200 (0:00:01.177)       0:02:59.659 ****** 
+
+TASK [Check if nodes needs etcd client certs (depends on network_plugin)] ******
+changed: [cauchy07]
+
+PLAY [Install etcd] ************************************************************
+mercredi 14 octobre 2026  15:43:41 +0200 (0:00:00.061)       0:02:59.721 ****** 
+
+TASK [adduser : User | Create User Group] **************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:42 +0200 (0:00:00.348)       0:03:00.070 ****** 
+
+TASK [adduser : User | Create User] ********************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:42 +0200 (0:00:00.434)       0:03:00.504 ****** 
+
+TASK [adduser : User | Create User Group] **************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:42 +0200 (0:00:00.321)       0:03:00.825 ****** 
+
+TASK [adduser : User | Create User] ********************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:43 +0200 (0:00:00.406)       0:03:01.231 ****** 
+
+TASK [etcd : Check etcd certs] *************************************************
+included: /root/kubespray/roles/etcd/tasks/check_certs.yml for cauchy07
+mercredi 14 octobre 2026  15:43:43 +0200 (0:00:00.055)       0:03:01.287 ****** 
+
+TASK [etcd : Check_certs | Register certs that have already been generated on first etcd node] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:43 +0200 (0:00:00.333)       0:03:01.620 ****** 
+
+TASK [etcd : Check_certs | Set default value for 'sync_certs', 'gen_certs' and 'etcd_secret_changed' to false] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:43 +0200 (0:00:00.038)       0:03:01.658 ****** 
+
+TASK [etcd : Check certs | Register ca and etcd admin/member certs on etcd hosts] ***
+ok: [cauchy07] => (item=ca.pem)
+ok: [cauchy07] => (item=member-cauchy07.pem)
+ok: [cauchy07] => (item=member-cauchy07-key.pem)
+ok: [cauchy07] => (item=admin-cauchy07.pem)
+ok: [cauchy07] => (item=admin-cauchy07-key.pem)
+mercredi 14 octobre 2026  15:43:45 +0200 (0:00:01.431)       0:03:03.090 ****** 
+
+TASK [etcd : Check certs | Register ca and etcd node certs on kubernetes hosts] ***
+ok: [cauchy07] => (item=ca.pem)
+ok: [cauchy07] => (item=node-cauchy07.pem)
+ok: [cauchy07] => (item=node-cauchy07-key.pem)
+mercredi 14 octobre 2026  15:43:45 +0200 (0:00:00.871)       0:03:03.961 ****** 
+
+TASK [etcd : Check_certs | Set 'gen_certs' to true if expected certificates are not on the first etcd node(1/2)] ***
+ok: [cauchy07] => (item=['/etc/ssl/etcd/ssl/ca.pem',    '/etc/ssl/etcd/ssl/admin-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/admin-cauchy07-key.pem',
+  '/etc/ssl/etcd/ssl/member-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/member-cauchy07-key.pem',
+    '/etc/ssl/etcd/ssl/node-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/node-cauchy07-key.pem'
+  ])
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.049)       0:03:04.011 ****** 
+
+TASK [etcd : Check_certs | Set 'gen_certs' to true if expected certificates are not on the first etcd node(2/2)] ***
+ok: [cauchy07] => (item=['/etc/ssl/etcd/ssl/ca.pem',    '/etc/ssl/etcd/ssl/admin-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/admin-cauchy07-key.pem',
+  '/etc/ssl/etcd/ssl/member-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/member-cauchy07-key.pem',
+    '/etc/ssl/etcd/ssl/node-cauchy07.pem',
+  '/etc/ssl/etcd/ssl/node-cauchy07-key.pem'
+  ])
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.053)       0:03:04.064 ****** 
+
+TASK [etcd : Check_certs | Set 'gen_*_certs' groups to track which nodes needs to have certs generated on first etcd node] ***
+changed: [cauchy07] => (item={'node_type': 'master', 'certs': ['/etc/ssl/etcd/ssl/member-cauchy07.pem', '/etc/ssl/etcd/ssl/member-cauchy07-key.pem', '/etc/ssl/etcd/ssl/admin-cauchy07.pem', '/etc/ssl/etcd/ssl/admin-cauchy07-key.pem']})
+changed: [cauchy07] => (item={'node_type': 'node', 'certs': ['/etc/ssl/etcd/ssl/node-cauchy07.pem', '/etc/ssl/etcd/ssl/node-cauchy07-key.pem']})
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.065)       0:03:04.129 ****** 
+
+TASK [etcd : Check_certs | Set 'etcd_member_requires_sync' to true if ca or member/admin cert and key don't exist on etcd member or checksum doesn't match] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.047)       0:03:04.177 ****** 
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.030)       0:03:04.207 ****** 
+
+TASK [etcd : Check_certs | Set 'sync_certs' to true] ***************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.037)       0:03:04.245 ****** 
+
+TASK [etcd : Generate etcd certs] **********************************************
+included: /root/kubespray/roles/etcd/tasks/gen_certs_script.yml for cauchy07
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.058)       0:03:04.304 ****** 
+
+TASK [etcd : Gen_certs | create etcd cert dir] *********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.324)       0:03:04.629 ****** 
+
+TASK [etcd : Gen_certs | create etcd script dir (on cauchy07)] *****************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:46 +0200 (0:00:00.320)       0:03:04.949 ****** 
+
+TASK [etcd : Gen_certs | write openssl config] *********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:47 +0200 (0:00:00.645)       0:03:05.595 ****** 
+
+TASK [etcd : Gen_certs | copy certs generation script] *************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:48 +0200 (0:00:00.578)       0:03:06.173 ****** 
+
+TASK [etcd : Gen_certs | run cert generation script for etcd and kube control plane nodes] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:48 +0200 (0:00:00.613)       0:03:06.787 ****** 
+
+TASK [etcd : Gen_certs | run cert generation script for all clients] ***********
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.458)       0:03:07.245 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.178)       0:03:07.424 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.078)       0:03:07.502 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.070)       0:03:07.573 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.042)       0:03:07.616 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.030)       0:03:07.647 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.032)       0:03:07.679 ****** 
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.039)       0:03:07.719 ****** 
+
+TASK [etcd : Trust etcd CA] ****************************************************
+included: /root/kubespray/roles/etcd/tasks/upd_ca_trust.yml for cauchy07
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.049)       0:03:07.768 ****** 
+
+TASK [etcd : Gen_certs | target ca-certificate store file] *********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:49 +0200 (0:00:00.039)       0:03:07.808 ****** 
+
+TASK [etcd : Gen_certs | add CA to trusted CA dir] *****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:50 +0200 (0:00:00.319)       0:03:08.127 ****** 
+
+TASK [etcd : Gen_certs | update ca-certificates (Debian/Ubuntu/SUSE/Flatcar)] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:02.920)       0:03:11.047 ****** 
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.030)       0:03:11.078 ****** 
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.030)       0:03:11.109 ****** 
+
+TASK [etcd : Trust etcd CA on nodes if needed] *********************************
+included: /root/kubespray/roles/etcd/tasks/upd_ca_trust.yml for cauchy07
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.049)       0:03:11.158 ****** 
+
+TASK [etcd : Gen_certs | target ca-certificate store file] *********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.039)       0:03:11.198 ****** 
+
+TASK [etcd : Gen_certs | add CA to trusted CA dir] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.313)       0:03:11.512 ****** 
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.031)       0:03:11.543 ****** 
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.030)       0:03:11.573 ****** 
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.030)       0:03:11.604 ****** 
+
+TASK [etcd : Gen_certs | Get etcd certificate serials] *************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:53 +0200 (0:00:00.335)       0:03:11.939 ****** 
+
+TASK [etcd : Set etcd_client_cert_serial] **************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.041)       0:03:11.980 ****** 
+
+TASK [etcd : Install etcd] *****************************************************
+included: /root/kubespray/roles/etcd/tasks/install_host.yml for cauchy07
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.057)       0:03:12.038 ****** 
+
+TASK [etcd : Get currently-deployed etcd version] ******************************
+[ERROR]: Task failed: Module failed: Error executing command: [Errno 2] Aucun fichier ou dossier de ce nom: b'/usr/local/bin/etcd'
+Origin: /root/kubespray/roles/etcd/tasks/install_host.yml:2:3
+
+1 ---
+2 - name: Get currently-deployed etcd version
+    ^ column 3
+
+fatal: [cauchy07]: FAILED! => {"changed": false, "cmd": "/usr/local/bin/etcd --version", "msg": "Error executing command.", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+...ignoring
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.319)       0:03:12.357 ****** 
+
+TASK [etcd : Restart etcd if necessary] ****************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.331)       0:03:12.689 ****** 
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.031)       0:03:12.720 ****** 
+
+TASK [etcd : Get currently-deployed etcd version as x.y.z format] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.039)       0:03:12.759 ****** 
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.031)       0:03:12.790 ****** 
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.047)       0:03:12.837 ****** 
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.030)       0:03:12.868 ****** 
+mercredi 14 octobre 2026  15:43:54 +0200 (0:00:00.030)       0:03:12.899 ****** 
+
+TASK [etcd : Install | Copy etcd binary from download dir] *********************
+changed: [cauchy07] => (item=etcd)
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.421)       0:03:13.320 ****** 
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.048)       0:03:13.368 ****** 
+
+TASK [etcdctl_etcdutl : Download etcd binary] **********************************
+included: /root/kubespray/roles/etcdctl_etcdutl/tasks/../../download/tasks/download_file.yml for cauchy07
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.057)       0:03:13.426 ****** 
+
+TASK [etcdctl_etcdutl : Prep_download | Set a few facts] ***********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.098)       0:03:13.524 ****** 
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.033)       0:03:13.558 ****** 
+
+TASK [etcdctl_etcdutl : Download_file | Set pathname of cached file] ***********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:55 +0200 (0:00:00.144)       0:03:13.703 ****** 
+
+TASK [etcdctl_etcdutl : Download_file | Create dest directory on node] *********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:56 +0200 (0:00:00.478)       0:03:14.182 ****** 
+mercredi 14 octobre 2026  15:43:56 +0200 (0:00:00.034)       0:03:14.216 ****** 
+mercredi 14 octobre 2026  15:43:56 +0200 (0:00:00.048)       0:03:14.265 ****** 
+
+TASK [etcdctl_etcdutl : Download_file | Download item] *************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:57 +0200 (0:00:01.081)       0:03:15.346 ****** 
+mercredi 14 octobre 2026  15:43:57 +0200 (0:00:00.032)       0:03:15.379 ****** 
+mercredi 14 octobre 2026  15:43:57 +0200 (0:00:00.032)       0:03:15.411 ****** 
+mercredi 14 octobre 2026  15:43:57 +0200 (0:00:00.032)       0:03:15.443 ****** 
+
+TASK [etcdctl_etcdutl : Download_file | Extract file archives] *****************
+included: /root/kubespray/roles/download/tasks/extract_file.yml for cauchy07
+mercredi 14 octobre 2026  15:43:57 +0200 (0:00:00.104)       0:03:15.548 ****** 
+
+TASK [etcdctl_etcdutl : Extract_file | Unpacking archive] **********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:43:59 +0200 (0:00:01.719)       0:03:17.267 ****** 
+
+TASK [etcdctl_etcdutl : Copy etcd binary] **************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:01 +0200 (0:00:01.801)       0:03:19.068 ****** 
+
+TASK [etcdctl_etcdutl : Copy etcdctl and etcdutl binary from download dir] *****
+changed: [cauchy07] => (item=etcdctl)
+changed: [cauchy07] => (item=etcdutl)
+mercredi 14 octobre 2026  15:44:01 +0200 (0:00:00.747)       0:03:19.816 ****** 
+
+TASK [etcdctl_etcdutl : Create etcdctl wrapper script] *************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:02 +0200 (0:00:00.585)       0:03:20.402 ****** 
+
+TASK [etcd : Configure etcd] ***************************************************
+included: /root/kubespray/roles/etcd/tasks/configure.yml for cauchy07
+mercredi 14 octobre 2026  15:44:02 +0200 (0:00:00.061)       0:03:20.463 ****** 
+
+TASK [etcd : Configure | Check if etcd cluster is healthy] *********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:07 +0200 (0:00:05.387)       0:03:25.850 ****** 
+mercredi 14 octobre 2026  15:44:07 +0200 (0:00:00.032)       0:03:25.882 ****** 
+
+TASK [etcd : Configure | Refresh etcd config] **********************************
+included: /root/kubespray/roles/etcd/tasks/refresh_config.yml for cauchy07
+mercredi 14 octobre 2026  15:44:07 +0200 (0:00:00.047)       0:03:25.930 ****** 
+
+TASK [etcd : Refresh config | Create etcd config file] *************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:08 +0200 (0:00:00.695)       0:03:26.625 ****** 
+mercredi 14 octobre 2026  15:44:08 +0200 (0:00:00.032)       0:03:26.657 ****** 
+
+TASK [etcd : Configure | Copy etcd.service systemd file] ***********************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:09 +0200 (0:00:00.587)       0:03:27.245 ****** 
+mercredi 14 octobre 2026  15:44:09 +0200 (0:00:00.031)       0:03:27.276 ****** 
+
+TASK [etcd : Configure | reload systemd] ***************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:10 +0200 (0:00:00.966)       0:03:28.243 ****** 
+
+TASK [etcd : Configure | Ensure etcd is running] *******************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:12 +0200 (0:00:02.331)       0:03:30.575 ****** 
+mercredi 14 octobre 2026  15:44:12 +0200 (0:00:00.033)       0:03:30.608 ****** 
+
+TASK [etcd : Configure | Wait for etcd cluster to be healthy] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.429)       0:03:31.038 ****** 
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.032)       0:03:31.071 ****** 
+
+TASK [etcd : Configure | Check if member is in etcd cluster] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.403)       0:03:31.474 ****** 
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.032)       0:03:31.506 ****** 
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.036)       0:03:31.543 ****** 
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.038)       0:03:31.582 ****** 
+
+TASK [etcd : Refresh etcd config] **********************************************
+included: /root/kubespray/roles/etcd/tasks/refresh_config.yml for cauchy07
+mercredi 14 octobre 2026  15:44:13 +0200 (0:00:00.045)       0:03:31.628 ****** 
+
+TASK [etcd : Refresh config | Create etcd config file] *************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:14 +0200 (0:00:00.739)       0:03:32.367 ****** 
+mercredi 14 octobre 2026  15:44:14 +0200 (0:00:00.031)       0:03:32.399 ****** 
+mercredi 14 octobre 2026  15:44:14 +0200 (0:00:00.031)       0:03:32.431 ****** 
+mercredi 14 octobre 2026  15:44:14 +0200 (0:00:00.031)       0:03:32.462 ****** 
+
+TASK [etcd : Refresh etcd config again for idempotency] ************************
+included: /root/kubespray/roles/etcd/tasks/refresh_config.yml for cauchy07
+mercredi 14 octobre 2026  15:44:14 +0200 (0:00:00.046)       0:03:32.509 ****** 
+
+TASK [etcd : Refresh config | Create etcd config file] *************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:15 +0200 (0:00:00.710)       0:03:33.219 ****** 
+mercredi 14 octobre 2026  15:44:15 +0200 (0:00:00.051)       0:03:33.271 ****** 
+
+RUNNING HANDLER [etcd : Refresh Time Fact] *************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:16 +0200 (0:00:01.112)       0:03:34.383 ****** 
+
+RUNNING HANDLER [etcd : Set Backup Directory] **********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:16 +0200 (0:00:00.038)       0:03:34.422 ****** 
+
+RUNNING HANDLER [etcd : Create Backup Directory] *******************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:16 +0200 (0:00:00.321)       0:03:34.743 ****** 
+
+RUNNING HANDLER [etcd : Stat etcd v2 data directory] ***************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:17 +0200 (0:00:00.314)       0:03:35.058 ****** 
+mercredi 14 octobre 2026  15:44:17 +0200 (0:00:00.047)       0:03:35.105 ****** 
+
+RUNNING HANDLER [etcd : Backup etcd v3 data] ***********************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:17 +0200 (0:00:00.398)       0:03:35.504 ****** 
+
+RUNNING HANDLER [etcd : Restart etcd] ******************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:23 +0200 (0:00:06.060)       0:03:41.564 ****** 
+
+RUNNING HANDLER [etcd : Wait for etcd up] **************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.602)       0:03:42.167 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.030)       0:03:42.197 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.034)       0:03:42.231 ****** 
+
+RUNNING HANDLER [etcd : Set etcd_secret_changed] *******************************
+ok: [cauchy07]
+
+PLAY [Install Kubernetes nodes] ************************************************
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.069)       0:03:42.300 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.329 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.357 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.386 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.414 ****** 
+
+TASK [kubernetes/node : Set kubelet_cgroup_driver_detected fact for containerd] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.037)       0:03:42.451 ****** 
+
+TASK [kubernetes/node : Set kubelet_cgroup_driver] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.040)       0:03:42.491 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.520 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.028)       0:03:42.548 ****** 
+
+TASK [kubernetes/node : Os specific vars] **************************************
+ok: [cauchy07] => (item=/root/kubespray/roles/kubernetes/node/vars/ubuntu-26.yml)
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.052)       0:03:42.600 ****** 
+
+TASK [kubernetes/node : Ensure /var/lib/cni exists] ****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.315)       0:03:42.916 ****** 
+mercredi 14 octobre 2026  15:44:24 +0200 (0:00:00.029)       0:03:42.945 ****** 
+
+TASK [kubernetes/node : Install | Copy kubelet binary from download dir] *******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.622)       0:03:43.568 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.041)       0:03:43.610 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.029)       0:03:43.640 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.030)       0:03:43.670 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.030)       0:03:43.701 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.030)       0:03:43.732 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.033)       0:03:43.766 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.094)       0:03:43.860 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.034)       0:03:43.895 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.029)       0:03:43.925 ****** 
+mercredi 14 octobre 2026  15:44:25 +0200 (0:00:00.029)       0:03:43.954 ****** 
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.029)       0:03:43.983 ****** 
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.029)       0:03:44.013 ****** 
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.029)       0:03:44.042 ****** 
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.029)       0:03:44.072 ****** 
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.028)       0:03:44.101 ****** 
+
+TASK [kubernetes/node : Ensure nodePort range is reserved] *********************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.332)       0:03:44.433 ****** 
+
+TASK [kubernetes/node : Verify if br_netfilter module exists] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:26 +0200 (0:00:00.320)       0:03:44.754 ****** 
+
+TASK [kubernetes/node : Verify br_netfilter module path exists] ****************
+ok: [cauchy07] => (item=/etc/modules-load.d)
+ok: [cauchy07] => (item=/etc/modprobe.d)
+mercredi 14 octobre 2026  15:44:27 +0200 (0:00:00.605)       0:03:45.359 ****** 
+
+TASK [kubernetes/node : Enable br_netfilter module] ****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:27 +0200 (0:00:00.427)       0:03:45.786 ****** 
+
+TASK [kubernetes/node : Persist br_netfilter module] ***************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:28 +0200 (0:00:00.568)       0:03:46.355 ****** 
+
+TASK [kubernetes/node : Check if bridge-nf-call-iptables key exists] ***********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:28 +0200 (0:00:00.317)       0:03:46.672 ****** 
+
+TASK [kubernetes/node : Enable bridge-nf-call tables] **************************
+changed: [cauchy07] => (item=net.bridge.bridge-nf-call-iptables)
+changed: [cauchy07] => (item=net.bridge.bridge-nf-call-arptables)
+changed: [cauchy07] => (item=net.bridge.bridge-nf-call-ip6tables)
+mercredi 14 octobre 2026  15:44:29 +0200 (0:00:00.919)       0:03:47.592 ****** 
+
+TASK [kubernetes/node : Modprobe Kernel Module for IPVS] ***********************
+changed: [cauchy07] => (item=ip_vs)
+changed: [cauchy07] => (item=ip_vs_rr)
+changed: [cauchy07] => (item=ip_vs_wrr)
+changed: [cauchy07] => (item=ip_vs_sh)
+changed: [cauchy07] => (item=ip_vs_wlc)
+changed: [cauchy07] => (item=ip_vs_lc)
+mercredi 14 octobre 2026  15:44:31 +0200 (0:00:01.824)       0:03:49.417 ****** 
+
+TASK [kubernetes/node : Modprobe conntrack module] *****************************
+changed: [cauchy07] => (item=nf_conntrack)
+mercredi 14 octobre 2026  15:44:31 +0200 (0:00:00.325)       0:03:49.742 ****** 
+mercredi 14 octobre 2026  15:44:31 +0200 (0:00:00.028)       0:03:49.770 ****** 
+
+TASK [kubernetes/node : Set kubelet api version to v1beta1] ********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:31 +0200 (0:00:00.035)       0:03:49.806 ****** 
+
+TASK [kubernetes/node : Write kubelet environment config file (kubeadm)] *******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:32 +0200 (0:00:00.586)       0:03:50.392 ****** 
+
+TASK [kubernetes/node : Write kubelet config file] *****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:33 +0200 (0:00:00.652)       0:03:51.045 ****** 
+
+TASK [kubernetes/node : Write kubelet systemd init file] ***********************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:33 +0200 (0:00:00.612)       0:03:51.658 ****** 
+mercredi 14 octobre 2026  15:44:33 +0200 (0:00:00.010)       0:03:51.669 ****** 
+
+RUNNING HANDLER [kubernetes/node : Kubelet | reload systemd] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:34 +0200 (0:00:00.971)       0:03:52.640 ****** 
+
+RUNNING HANDLER [kubernetes/node : Kubelet | restart kubelet] ******************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:35 +0200 (0:00:00.487)       0:03:53.128 ****** 
+
+TASK [kubernetes/node : Enable kubelet] ****************************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:36 +0200 (0:00:01.040)       0:03:54.168 ****** 
+
+RUNNING HANDLER [kubernetes/node : Kubelet | restart kubelet] ******************
+changed: [cauchy07]
+
+PLAY [Install the control plane] ***********************************************
+mercredi 14 octobre 2026  15:44:36 +0200 (0:00:00.523)       0:03:54.692 ****** 
+mercredi 14 octobre 2026  15:44:36 +0200 (0:00:00.031)       0:03:54.723 ****** 
+
+TASK [kubernetes/kubeadm_common : Kubeadm | List existing kubeadm patches] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:37 +0200 (0:00:00.318)       0:03:55.041 ****** 
+mercredi 14 octobre 2026  15:44:37 +0200 (0:00:00.027)       0:03:55.069 ****** 
+mercredi 14 octobre 2026  15:44:37 +0200 (0:00:00.038)       0:03:55.107 ****** 
+mercredi 14 octobre 2026  15:44:37 +0200 (0:00:00.029)       0:03:55.137 ****** 
+mercredi 14 octobre 2026  15:44:37 +0200 (0:00:00.057)       0:03:55.194 ****** 
+
+TASK [kubernetes/control-plane : Pre-upgrade | Delete control plane manifests if etcd secrets changed] ***
+ok: [cauchy07] => (item=kube-apiserver)
+ok: [cauchy07] => (item=kube-controller-manager)
+ok: [cauchy07] => (item=kube-scheduler)
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.898)       0:03:56.093 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.041)       0:03:56.134 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.164 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.193 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.222 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.028)       0:03:56.251 ****** 
+
+TASK [kubernetes/control-plane : Create kube-scheduler config] *****************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.589)       0:03:56.841 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.871 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.900 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.929 ****** 
+mercredi 14 octobre 2026  15:44:38 +0200 (0:00:00.029)       0:03:56.958 ****** 
+mercredi 14 octobre 2026  15:44:39 +0200 (0:00:00.048)       0:03:57.007 ****** 
+mercredi 14 octobre 2026  15:44:39 +0200 (0:00:00.029)       0:03:57.036 ****** 
+
+TASK [kubernetes/control-plane : Install | Copy kubectl binary from download dir] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:39 +0200 (0:00:00.598)       0:03:57.635 ****** 
+
+TASK [kubernetes/control-plane : Install kubectl bash completion] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.348)       0:03:57.984 ****** 
+
+TASK [kubernetes/control-plane : Set kubectl bash completion file permissions] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.321)       0:03:58.305 ****** 
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.036)       0:03:58.342 ****** 
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.028)       0:03:58.370 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | Check if kubeadm has already run] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.307)       0:03:58.678 ****** 
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.050)       0:03:58.729 ****** 
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.044)       0:03:58.773 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | aggregate all SANs] *****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.159)       0:03:58.933 ****** 
+mercredi 14 octobre 2026  15:44:40 +0200 (0:00:00.030)       0:03:58.963 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.029)       0:03:58.993 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.029)       0:03:59.022 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.029)       0:03:59.051 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.029)       0:03:59.080 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.033)       0:03:59.114 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | Create kubeadm config] **************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.822)       0:03:59.937 ****** 
+mercredi 14 octobre 2026  15:44:41 +0200 (0:00:00.029)       0:03:59.966 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.029)       0:03:59.995 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.027)       0:04:00.023 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.088)       0:04:00.111 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.095)       0:04:00.207 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.038)       0:04:00.245 ****** 
+mercredi 14 octobre 2026  15:44:42 +0200 (0:00:00.029)       0:04:00.275 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | Initialize first control plane node (1st try)] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:55 +0200 (0:00:12.890)       0:04:13.166 ****** 
+mercredi 14 octobre 2026  15:44:55 +0200 (0:00:00.768)       0:04:13.934 ****** 
+mercredi 14 octobre 2026  15:44:55 +0200 (0:00:00.038)       0:04:13.973 ****** 
+mercredi 14 octobre 2026  15:44:56 +0200 (0:00:00.034)       0:04:14.008 ****** 
+
+TASK [kubernetes/control-plane : Create kubeadm token for joining nodes with 24h expiration (default)] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:56 +0200 (0:00:00.392)       0:04:14.400 ****** 
+
+TASK [kubernetes/control-plane : Set kubeadm_token] ****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:56 +0200 (0:00:00.045)       0:04:14.445 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | Join other control plane nodes] *****
+included: /root/kubespray/roles/kubernetes/control-plane/tasks/kubeadm-secondary.yml for cauchy07
+mercredi 14 octobre 2026  15:44:56 +0200 (0:00:00.062)       0:04:14.508 ****** 
+
+TASK [kubernetes/control-plane : Set kubeadm_discovery_address] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:56 +0200 (0:00:00.111)       0:04:14.619 ****** 
+
+TASK [kubernetes/control-plane : Upload certificates so they are fresh and not expired] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.417)       0:04:15.037 ****** 
+
+TASK [kubernetes/control-plane : Parse certificate key if not set] *************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.042)       0:04:15.079 ****** 
+
+TASK [kubernetes/control-plane : Wait for k8s apiserver] ***********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.457)       0:04:15.536 ****** 
+
+TASK [kubernetes/control-plane : Check already run] ****************************
+ok: [cauchy07] => {
+    "msg": false
+}
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.039)       0:04:15.576 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.034)       0:04:15.610 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.046)       0:04:15.657 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.035)       0:04:15.692 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.034)       0:04:15.726 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.034)       0:04:15.761 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.049)       0:04:15.811 ****** 
+mercredi 14 octobre 2026  15:44:57 +0200 (0:00:00.031)       0:04:15.842 ****** 
+
+TASK [kubernetes/control-plane : Kubeadm | Remove taint for control plane node with node role] ***
+changed: [cauchy07] => (item=node-role.kubernetes.io/control-plane:NoSchedule-)
+mercredi 14 octobre 2026  15:44:58 +0200 (0:00:00.410)       0:04:16.252 ****** 
+mercredi 14 octobre 2026  15:44:58 +0200 (0:00:00.030)       0:04:16.283 ****** 
+mercredi 14 octobre 2026  15:44:58 +0200 (0:00:00.045)       0:04:16.329 ****** 
+mercredi 14 octobre 2026  15:44:58 +0200 (0:00:00.047)       0:04:16.376 ****** 
+
+TASK [kubernetes/control-plane : Install script to renew K8S control plane certificates] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.654)       0:04:17.030 ****** 
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.039)       0:04:17.070 ****** 
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.042)       0:04:17.112 ****** 
+
+TASK [kubernetes/client : Set external kube-apiserver endpoint] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.058)       0:04:17.170 ****** 
+
+TASK [kubernetes/client : Create kube config dir for current/ansible become user] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.352)       0:04:17.523 ****** 
+
+TASK [kubernetes/client : Write admin kubeconfig to current/ansible become user home] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.345)       0:04:17.868 ****** 
+mercredi 14 octobre 2026  15:44:59 +0200 (0:00:00.032)       0:04:17.901 ****** 
+
+TASK [kubernetes/client : Wait for k8s apiserver] ******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:00 +0200 (0:00:00.410)       0:04:18.312 ****** 
+mercredi 14 octobre 2026  15:45:00 +0200 (0:00:00.051)       0:04:18.363 ****** 
+mercredi 14 octobre 2026  15:45:00 +0200 (0:00:00.036)       0:04:18.399 ****** 
+mercredi 14 octobre 2026  15:45:00 +0200 (0:00:00.029)       0:04:18.429 ****** 
+mercredi 14 octobre 2026  15:45:00 +0200 (0:00:00.045)       0:04:18.475 ****** 
+
+TASK [kubernetes-apps/cluster_roles : Kubernetes Apps | Wait for kube-apiserver] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:01 +0200 (0:00:00.528)       0:04:19.003 ****** 
+
+TASK [kubernetes-apps/cluster_roles : Kubernetes Apps | Add ClusterRoleBinding to admit nodes] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:01 +0200 (0:00:00.602)       0:04:19.606 ****** 
+
+TASK [kubernetes-apps/cluster_roles : Apply workaround to allow all nodes with cert O=system:nodes to register] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:02 +0200 (0:00:00.499)       0:04:20.106 ****** 
+
+TASK [kubernetes-apps/cluster_roles : Kubernetes Apps | Remove old webhook ClusterRole] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:02 +0200 (0:00:00.376)       0:04:20.482 ****** 
+
+TASK [kubernetes-apps/cluster_roles : Kubernetes Apps | Remove old webhook ClusterRoleBinding] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:02 +0200 (0:00:00.371)       0:04:20.854 ****** 
+
+TASK [kubernetes-apps/cluster_roles : PriorityClass | Copy k8s-cluster-critical-pc.yml file] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:03 +0200 (0:00:00.594)       0:04:21.448 ****** 
+
+TASK [kubernetes-apps/cluster_roles : PriorityClass | Create k8s-cluster-critical] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:03 +0200 (0:00:00.402)       0:04:21.851 ****** 
+
+RUNNING HANDLER [kubernetes/control-plane : Control plane | reload systemd] ****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:04 +0200 (0:00:01.041)       0:04:22.893 ****** 
+
+RUNNING HANDLER [kubernetes/control-plane : Control plane | reload kubelet] ****
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:05 +0200 (0:00:00.536)       0:04:23.429 ****** 
+
+RUNNING HANDLER [kubernetes/control-plane : Control plane | wait for kube-scheduler] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:05 +0200 (0:00:00.464)       0:04:23.894 ****** 
+
+RUNNING HANDLER [kubernetes/control-plane : Control plane | wait for kube-controller-manager] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:06 +0200 (0:00:00.442)       0:04:24.337 ****** 
+
+RUNNING HANDLER [kubernetes/control-plane : Control plane | wait for the apiserver to be running] ***
+ok: [cauchy07]
+
+PLAY [Invoke kubeadm and install a CNI] ****************************************
+mercredi 14 octobre 2026  15:45:06 +0200 (0:00:00.519)       0:04:24.856 ****** 
+mercredi 14 octobre 2026  15:45:06 +0200 (0:00:00.030)       0:04:24.887 ****** 
+
+TASK [kubernetes/kubeadm_common : Kubeadm | List existing kubeadm patches] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:07 +0200 (0:00:00.333)       0:04:25.220 ****** 
+mercredi 14 octobre 2026  15:45:07 +0200 (0:00:00.029)       0:04:25.250 ****** 
+mercredi 14 octobre 2026  15:45:07 +0200 (0:00:00.042)       0:04:25.292 ****** 
+
+TASK [kubernetes/kubeadm : Set kubeadm_discovery_address] **********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:07 +0200 (0:00:00.110)       0:04:25.403 ****** 
+
+TASK [kubernetes/kubeadm : Check if kubelet.conf exists] ***********************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:07 +0200 (0:00:00.317)       0:04:25.720 ****** 
+
+TASK [kubernetes/kubeadm : Check if kubeadm CA cert is accessible] *************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.332)       0:04:26.053 ****** 
+
+TASK [kubernetes/kubeadm : Fetch CA certificate from control plane node] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.338)       0:04:26.391 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.048)       0:04:26.440 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.034)       0:04:26.475 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.048)       0:04:26.523 ****** 
+
+TASK [kubernetes/kubeadm : Check if discovery kubeconfig exists] ***************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.330)       0:04:26.854 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.030)       0:04:26.885 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.036)       0:04:26.921 ****** 
+mercredi 14 octobre 2026  15:45:08 +0200 (0:00:00.030)       0:04:26.952 ****** 
+mercredi 14 octobre 2026  15:45:09 +0200 (0:00:00.036)       0:04:26.988 ****** 
+mercredi 14 octobre 2026  15:45:09 +0200 (0:00:00.031)       0:04:27.019 ****** 
+
+TASK [kubernetes/kubeadm : Get current resourceVersion of kube-proxy configmap] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:09 +0200 (0:00:00.390)       0:04:27.410 ****** 
+
+TASK [kubernetes/kubeadm : Update server field in kube-proxy kubeconfig] *******
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:09 +0200 (0:00:00.533)       0:04:27.943 ****** 
+mercredi 14 octobre 2026  15:45:10 +0200 (0:00:00.058)       0:04:28.002 ****** 
+
+TASK [kubernetes/kubeadm : Get new resourceVersion of kube-proxy configmap] ****
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:10 +0200 (0:00:00.394)       0:04:28.397 ****** 
+
+TASK [kubernetes/kubeadm : Set ca.crt file permission] *************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:10 +0200 (0:00:00.331)       0:04:28.728 ****** 
+
+TASK [kubernetes/kubeadm : Restart all kube-proxy pods to ensure that they load the new configmap] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:11 +0200 (0:00:00.508)       0:04:29.237 ****** 
+mercredi 14 octobre 2026  15:45:11 +0200 (0:00:00.071)       0:04:29.309 ****** 
+
+TASK [kubernetes/node-label : Kubernetes Apps | Wait for kube-apiserver] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:11 +0200 (0:00:00.617)       0:04:29.928 ****** 
+
+TASK [kubernetes/node-label : Set role node label to empty list] ***************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:11 +0200 (0:00:00.040)       0:04:29.968 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.037)       0:04:30.006 ****** 
+
+TASK [kubernetes/node-label : Set inventory node label to empty list] **********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.041)       0:04:30.048 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.037)       0:04:30.086 ****** 
+
+TASK [kubernetes/node-label : debug] *******************************************
+ok: [cauchy07] => {
+    "role_node_labels": []
+}
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.045)       0:04:30.132 ****** 
+
+TASK [kubernetes/node-label : debug] *******************************************
+ok: [cauchy07] => {
+    "inventory_node_labels": []
+}
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.046)       0:04:30.178 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.051)       0:04:30.229 ****** 
+
+TASK [kubernetes/node-taint : Set role and inventory node taint to empty list] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.041)       0:04:30.271 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.101)       0:04:30.373 ****** 
+
+TASK [kubernetes/node-taint : Populate inventory node taint] *******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.053)       0:04:30.426 ****** 
+
+TASK [kubernetes/node-taint : debug] *******************************************
+ok: [cauchy07] => {
+    "role_node_taints": []
+}
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.039)       0:04:30.466 ****** 
+
+TASK [kubernetes/node-taint : debug] *******************************************
+ok: [cauchy07] => {
+    "inventory_node_taints": []
+}
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.038)       0:04:30.505 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.056)       0:04:30.562 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.032)       0:04:30.594 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.029)       0:04:30.624 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.030)       0:04:30.655 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.041)       0:04:30.697 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.030)       0:04:30.727 ****** 
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.051)       0:04:30.779 ****** 
+
+TASK [Container Network Interface plugin] **************************************
+included: network_plugin/cni for cauchy07
+mercredi 14 octobre 2026  15:45:12 +0200 (0:00:00.057)       0:04:30.836 ****** 
+
+TASK [network_plugin/cni : CNI | make sure /opt/cni/bin exists] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:13 +0200 (0:00:00.333)       0:04:31.170 ****** 
+
+TASK [network_plugin/cni : CNI | Copy cni plugins] *****************************
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:15 +0200 (0:00:02.223)       0:04:33.394 ****** 
+
+TASK [Network plugin] **********************************************************
+included: network_plugin/flannel for cauchy07
+mercredi 14 octobre 2026  15:45:15 +0200 (0:00:00.060)       0:04:33.454 ****** 
+mercredi 14 octobre 2026  15:45:15 +0200 (0:00:00.031)       0:04:33.485 ****** 
+
+TASK [network_plugin/flannel : Flannel | Create Flannel manifests] *************
+changed: [cauchy07] => (item={'name': 'flannel', 'file': 'cni-flannel-rbac.yml', 'type': 'sa'})
+changed: [cauchy07] => (item={'name': 'kube-flannel', 'file': 'cni-flannel.yml', 'type': 'ds'})
+mercredi 14 octobre 2026  15:45:16 +0200 (0:00:01.179)       0:04:34.665 ****** 
+
+TASK [network_plugin/flannel : Flannel | Start Resources] **********************
+ok: [cauchy07] => (item={'diff': [], 'dest': '/etc/kubernetes/cni-flannel-rbac.yml', 'src': '/root/.ansible/tmp/ansible-tmp-1791985515.5467658-25945-130719320345055/.source.yml', 'md5sum': '0931f016f6160a717ce00f5a84b330d9', 'checksum': '81865111fb2e183d45927d31531c07ad75391a0c', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 742, 'invocation': {'module_args': {'dest': '/etc/kubernetes/cni-flannel-rbac.yml', 'mode': '0644', 'src': '/root/.ansible/tmp/ansible-tmp-1791985515.5467658-25945-130719320345055/.source.yml', 'follow': False, '_original_basename': 'cni-flannel-rbac.yml.j2', 'checksum': '81865111fb2e183d45927d31531c07ad75391a0c', 'backup': False, 'force': True, 'remote_src': False, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'flannel', 'file': 'cni-flannel-rbac.yml', 'type': 'sa'}, 'ansible_loop_var': 'item'})
+ok: [cauchy07] => (item={'diff': [], 'dest': '/etc/kubernetes/cni-flannel.yml', 'src': '/root/.ansible/tmp/ansible-tmp-1791985516.1157556-25945-140024957678824/.source.yml', 'md5sum': '24211a694b8445f77a2eade9be4883ee', 'checksum': '355df12fb033db6ff4c0be1aa0158b97db588558', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 16227, 'invocation': {'module_args': {'dest': '/etc/kubernetes/cni-flannel.yml', 'mode': '0644', 'src': '/root/.ansible/tmp/ansible-tmp-1791985516.1157556-25945-140024957678824/.source.yml', 'follow': False, '_original_basename': 'cni-flannel.yml.j2', 'checksum': '355df12fb033db6ff4c0be1aa0158b97db588558', 'backup': False, 'force': True, 'remote_src': False, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'kube-flannel', 'file': 'cni-flannel.yml', 'type': 'ds'}, 'ansible_loop_var': 'item'})
+mercredi 14 octobre 2026  15:45:17 +0200 (0:00:00.942)       0:04:35.607 ****** 
+
+TASK [network_plugin/flannel : Flannel | Wait for flannel subnet.env file presence] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:23 +0200 (0:00:05.379)       0:04:40.987 ****** 
+mercredi 14 octobre 2026  15:45:23 +0200 (0:00:00.032)       0:04:41.019 ****** 
+
+PLAY [Install Calico Route Reflector] ******************************************
+skipping: no hosts matched
+
+PLAY [Patch Kubernetes for Windows] ********************************************
+mercredi 14 octobre 2026  15:45:23 +0200 (0:00:00.059)       0:04:41.078 ****** 
+
+TASK [win_nodes/kubernetes_patch : Ensure that user manifests directory exists] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:23 +0200 (0:00:00.327)       0:04:41.406 ****** 
+
+TASK [win_nodes/kubernetes_patch : Check current nodeselector for kube-proxy daemonset] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:23 +0200 (0:00:00.378)       0:04:41.785 ****** 
+
+TASK [win_nodes/kubernetes_patch : Apply nodeselector patch for kube-proxy daemonset] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.386)       0:04:42.171 ****** 
+
+TASK [win_nodes/kubernetes_patch : debug] **************************************
+ok: [cauchy07] => {
+    "msg": [
+        "daemonset.apps/kube-proxy patched (no change)"
+    ]
+}
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.051)       0:04:42.223 ****** 
+
+TASK [win_nodes/kubernetes_patch : debug] **************************************
+ok: [cauchy07] => {
+    "msg": []
+}
+
+PLAY [Install Kubernetes apps] *************************************************
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.140)       0:04:42.363 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.031)       0:04:42.395 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.030)       0:04:42.426 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.031)       0:04:42.457 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.046)       0:04:42.504 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.060)       0:04:42.565 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.031)       0:04:42.596 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.036)       0:04:42.632 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.046)       0:04:42.679 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.030)       0:04:42.709 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.031)       0:04:42.741 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.059)       0:04:42.800 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.038)       0:04:42.839 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.049)       0:04:42.888 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.033)       0:04:42.921 ****** 
+mercredi 14 octobre 2026  15:45:24 +0200 (0:00:00.031)       0:04:42.952 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:42.983 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.047)       0:04:43.031 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.060)       0:04:43.091 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.030)       0:04:43.122 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.030)       0:04:43.152 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.184 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.043)       0:04:43.227 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.066)       0:04:43.294 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.048)       0:04:43.343 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.070)       0:04:43.413 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.444 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.476 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.508 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.033)       0:04:43.541 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.045)       0:04:43.586 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.617 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.050)       0:04:43.667 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.073)       0:04:43.741 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.772 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.033)       0:04:43.805 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.032)       0:04:43.838 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.044)       0:04:43.882 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.033)       0:04:43.915 ****** 
+mercredi 14 octobre 2026  15:45:25 +0200 (0:00:00.031)       0:04:43.946 ****** 
+mercredi 14 octobre 2026  15:45:26 +0200 (0:00:00.031)       0:04:43.978 ****** 
+mercredi 14 octobre 2026  15:45:26 +0200 (0:00:00.032)       0:04:44.011 ****** 
+mercredi 14 octobre 2026  15:45:26 +0200 (0:00:00.064)       0:04:44.075 ****** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | Wait for kube-apiserver] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:26 +0200 (0:00:00.502)       0:04:44.578 ****** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | CoreDNS] *********************
+changed: [cauchy07] => (item=coredns-clusterrole.yml.j2)
+changed: [cauchy07] => (item=coredns-clusterrolebinding.yml.j2)
+changed: [cauchy07] => (item=coredns-config.yml.j2)
+changed: [cauchy07] => (item=coredns-deployment.yml.j2)
+changed: [cauchy07] => (item=coredns-sa.yml.j2)
+changed: [cauchy07] => (item=coredns-svc.yml.j2)
+changed: [cauchy07] => (item=dns-autoscaler-sa.yml.j2)
+changed: [cauchy07] => (item=dns-autoscaler.yml.j2)
+changed: [cauchy07] => (item=dns-autoscaler-clusterrole.yml.j2)
+changed: [cauchy07] => (item=dns-autoscaler-clusterrolebinding.yml.j2)
+mercredi 14 octobre 2026  15:45:32 +0200 (0:00:06.032)       0:04:50.610 ****** 
+mercredi 14 octobre 2026  15:45:32 +0200 (0:00:00.201)       0:04:50.812 ****** 
+mercredi 14 octobre 2026  15:45:32 +0200 (0:00:00.087)       0:04:50.899 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.081)       0:04:50.981 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.049)       0:04:51.030 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.061 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.093 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.124 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.032)       0:04:51.157 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.187 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.041)       0:04:51.229 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.260 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.290 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.321 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.352 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.383 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.414 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.037)       0:04:51.452 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.032)       0:04:51.484 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.035)       0:04:51.520 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.037)       0:04:51.557 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.049)       0:04:51.606 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.637 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.030)       0:04:51.668 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.699 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.032)       0:04:51.732 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.044)       0:04:51.776 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.056)       0:04:51.833 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.067)       0:04:51.901 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.031)       0:04:51.932 ****** 
+mercredi 14 octobre 2026  15:45:33 +0200 (0:00:00.034)       0:04:51.967 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.030)       0:04:51.998 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.030 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.057)       0:04:52.088 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.069)       0:04:52.157 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.046)       0:04:52.204 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.059)       0:04:52.263 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.295 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.326 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.032)       0:04:52.358 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.054)       0:04:52.413 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.067)       0:04:52.480 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.512 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.543 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.574 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.053)       0:04:52.627 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.065)       0:04:52.693 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.724 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.031)       0:04:52.755 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.052)       0:04:52.808 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.080)       0:04:52.888 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.034)       0:04:52.922 ****** 
+mercredi 14 octobre 2026  15:45:34 +0200 (0:00:00.040)       0:04:52.962 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.063)       0:04:53.026 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.220)       0:04:53.246 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.039)       0:04:53.285 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.045)       0:04:53.331 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.031)       0:04:53.363 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.042)       0:04:53.405 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.032)       0:04:53.438 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.044)       0:04:53.482 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.032)       0:04:53.515 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.044)       0:04:53.559 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.033)       0:04:53.593 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.041)       0:04:53.635 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.032)       0:04:53.667 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.052)       0:04:53.720 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.035)       0:04:53.755 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.050)       0:04:53.805 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.063)       0:04:53.869 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.035)       0:04:53.904 ****** 
+mercredi 14 octobre 2026  15:45:35 +0200 (0:00:00.054)       0:04:53.959 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.033)       0:04:53.993 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.032)       0:04:54.026 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.034)       0:04:54.061 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.046)       0:04:54.107 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.033)       0:04:54.141 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.032)       0:04:54.174 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.037)       0:04:54.212 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.047)       0:04:54.259 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.034)       0:04:54.294 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.044)       0:04:54.338 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.034)       0:04:54.373 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.055)       0:04:54.428 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.046)       0:04:54.474 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.031)       0:04:54.506 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.031)       0:04:54.537 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.031)       0:04:54.569 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.040)       0:04:54.610 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.062)       0:04:54.672 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.050)       0:04:54.723 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.032)       0:04:54.756 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.034)       0:04:54.790 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.033)       0:04:54.824 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.032)       0:04:54.856 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.034)       0:04:54.891 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.046)       0:04:54.937 ****** 
+mercredi 14 octobre 2026  15:45:36 +0200 (0:00:00.035)       0:04:54.973 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.039)       0:04:55.012 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.033)       0:04:55.045 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.065)       0:04:55.110 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.142 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.173 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.205 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.236 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.267 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.030)       0:04:55.298 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.330 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.030)       0:04:55.361 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.393 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.030)       0:04:55.423 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.455 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.046)       0:04:55.501 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.533 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.046)       0:04:55.579 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.031)       0:04:55.610 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.034)       0:04:55.645 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.049)       0:04:55.694 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.034)       0:04:55.728 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.035)       0:04:55.763 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.033)       0:04:55.797 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.042)       0:04:55.840 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.032)       0:04:55.872 ****** 
+mercredi 14 octobre 2026  15:45:37 +0200 (0:00:00.072)       0:04:55.944 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.069)       0:04:56.014 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.031)       0:04:56.046 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.042)       0:04:56.088 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.030)       0:04:56.119 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.034)       0:04:56.153 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.033)       0:04:56.186 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.032)       0:04:56.219 ****** 
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.031)       0:04:56.251 ****** 
+
+PLAY [Apply resolv.conf changes now that cluster DNS is up] ********************
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.119)       0:04:56.370 ****** 
+
+TASK [adduser : User | Create User Group] **************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:38 +0200 (0:00:00.333)       0:04:56.703 ****** 
+
+TASK [adduser : User | Create User] ********************************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.407)       0:04:57.111 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.030)       0:04:57.141 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.036)       0:04:57.178 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.030)       0:04:57.209 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.030)       0:04:57.239 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.030)       0:04:57.270 ****** 
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.030)       0:04:57.301 ****** 
+
+TASK [kubernetes/preinstall : Check resolvconf] ********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.328)       0:04:57.629 ****** 
+
+TASK [kubernetes/preinstall : Check existence of /etc/resolvconf/resolv.conf.d] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:39 +0200 (0:00:00.322)       0:04:57.952 ****** 
+
+TASK [kubernetes/preinstall : Check status of /etc/resolv.conf] ****************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:40 +0200 (0:00:00.324)       0:04:58.276 ****** 
+
+TASK [kubernetes/preinstall : Fetch resolv.conf] *******************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:40 +0200 (0:00:00.319)       0:04:58.596 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Check if host has NetworkManager] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:40 +0200 (0:00:00.339)       0:04:58.935 ****** 
+
+TASK [kubernetes/preinstall : Check systemd-resolved] **************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.341)       0:04:59.276 ****** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.046)       0:04:59.323 ****** 
+
+TASK [kubernetes/preinstall : Set dns facts] ***********************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.044)       0:04:59.367 ****** 
+
+TASK [kubernetes/preinstall : Check if kubelet is configured] ******************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.321)       0:04:59.689 ****** 
+
+TASK [kubernetes/preinstall : Check if early DNS configuration stage] **********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.040)       0:04:59.729 ****** 
+
+TASK [kubernetes/preinstall : Target resolv.conf files] ************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.041)       0:04:59.771 ****** 
+mercredi 14 octobre 2026  15:45:41 +0200 (0:00:00.032)       0:04:59.803 ****** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhclient.conf exists] **************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.332)       0:05:00.136 ****** 
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.031)       0:05:00.167 ****** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhcp/dhclient.conf exists] *********
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.318)       0:05:00.486 ****** 
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.031)       0:05:00.517 ****** 
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.030)       0:05:00.548 ****** 
+
+TASK [kubernetes/preinstall : Target dhclient hook file for Debian family] *****
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.043)       0:05:00.591 ****** 
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.031)       0:05:00.623 ****** 
+
+TASK [kubernetes/preinstall : Check /usr readonly] *****************************
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:42 +0200 (0:00:00.325)       0:05:00.948 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:00.980 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.012 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.045 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.076 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.109 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.142 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.173 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.203 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.234 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.266 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.296 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.328 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.359 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.390 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.422 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.031)       0:05:01.453 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.057)       0:05:01.510 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.042)       0:05:01.553 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.586 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.030)       0:05:01.616 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.039)       0:05:01.656 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.036)       0:05:01.693 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.041)       0:05:01.734 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.032)       0:05:01.767 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.033)       0:05:01.801 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.088)       0:05:01.889 ****** 
+mercredi 14 octobre 2026  15:45:43 +0200 (0:00:00.083)       0:05:01.973 ****** 
+mercredi 14 octobre 2026  15:45:44 +0200 (0:00:00.037)       0:05:02.010 ****** 
+mercredi 14 octobre 2026  15:45:44 +0200 (0:00:00.037)       0:05:02.048 ****** 
+
+TASK [kubernetes/preinstall : Create systemd-resolved drop-in directory] *******
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:44 +0200 (0:00:00.399)       0:05:02.447 ****** 
+
+TASK [kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:45 +0200 (0:00:00.676)       0:05:03.124 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Ensure NetworkManager conf.d dir] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:45 +0200 (0:00:00.330)       0:05:03.455 ****** 
+mercredi 14 octobre 2026  15:45:45 +0200 (0:00:00.032)       0:05:03.488 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing K8S interfaces (kube-ipvs0/nodelocaldns)] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:46 +0200 (0:00:00.610)       0:05:04.098 ****** 
+mercredi 14 octobre 2026  15:45:46 +0200 (0:00:00.697)       0:05:04.796 ****** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:46 +0200 (0:00:00.047)       0:05:04.844 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.337)       0:05:05.181 ****** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration] ***
+ok: [cauchy07]
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.334)       0:05:05.515 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.032)       0:05:05.547 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.032)       0:05:05.580 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.612 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.040)       0:05:05.652 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.030)       0:05:05.682 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.714 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.746 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.030)       0:05:05.777 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.032)       0:05:05.810 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.841 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.873 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.061)       0:05:05.935 ****** 
+mercredi 14 octobre 2026  15:45:47 +0200 (0:00:00.031)       0:05:05.966 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.092)       0:05:06.058 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.033)       0:05:06.092 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.124 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.032)       0:05:06.156 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.032)       0:05:06.189 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.220 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.252 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.283 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.315 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.346 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.378 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.032)       0:05:06.411 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.443 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.475 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.032)       0:05:06.508 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.539 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.037)       0:05:06.577 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.038)       0:05:06.616 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.037)       0:05:06.654 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.032)       0:05:06.686 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.031)       0:05:06.718 ****** 
+mercredi 14 octobre 2026  15:45:48 +0200 (0:00:00.023)       0:05:06.741 ****** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | Restart systemd-resolved] ***
+changed: [cauchy07]
+mercredi 14 octobre 2026  15:45:49 +0200 (0:00:00.647)       0:05:07.389 ****** 
+mercredi 14 octobre 2026  15:45:49 +0200 (0:00:00.033)       0:05:07.422 ****** 
+
+PLAY RECAP *********************************************************************
+cauchy07                   : ok=558  changed=126  unreachable=0    failed=0    skipped=750  rescued=0    ignored=1   
+
+
+TASKS RECAP ********************************************************************
+mercredi 14 octobre 2026  15:45:49 +0200 (0:00:00.032)       0:05:07.455 ****** 
+=============================================================================== 
+system_packages : Manage packages -------------------------------------- 29.32s
+kubernetes/control-plane : Kubeadm | Initialize first control plane node (1st try) -- 12.89s
+etcd : Restart etcd ----------------------------------------------------- 6.06s
+kubernetes-apps/ansible : Kubernetes Apps | CoreDNS --------------------- 6.03s
+etcd : Configure | Check if etcd cluster is healthy --------------------- 5.39s
+network_plugin/flannel : Flannel | Wait for flannel subnet.env file presence --- 5.38s
+container-engine/validate-container-engine : Populate service facts ----- 4.94s
+download : Download_container | Download image if required -------------- 4.50s
+kubernetes/preinstall : Increase sysctl value if lower than configured minimum --- 4.34s
+kubernetes/preinstall : Read current sysctl values for floor-managed keys --- 4.28s
+download : Download_container | Download image if required -------------- 4.10s
+download : Download_container | Download image if required -------------- 3.81s
+download : Download_container | Download image if required -------------- 3.29s
+etcd : Gen_certs | update ca-certificates (Debian/Ubuntu/SUSE/Flatcar) --- 2.92s
+download : Download_container | Download image if required -------------- 2.72s
+download : Download_container | Download image if required -------------- 2.69s
+download : Download_container | Download image if required -------------- 2.44s
+download : Download_file | Download item -------------------------------- 2.39s
+etcd : Configure | Ensure etcd is running ------------------------------- 2.33s
+container-engine/containerd : Containerd | Unpack containerd archive ---- 2.24s
